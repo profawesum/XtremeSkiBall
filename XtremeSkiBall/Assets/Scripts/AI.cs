@@ -8,7 +8,7 @@ public class AI : MonoBehaviour
 {
     public Vector3 LastSeenPosition;
     public float FiringRange { get; private set; }
-    public float PickupDistance = 0.1f;
+    public float PickupDistance = 0.5f;
     public List<Transform> WeaponPositions;
     public GameObject Destination;
     public GameObject[] Players;
