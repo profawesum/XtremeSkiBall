@@ -7,7 +7,13 @@ public class PlayerShoot : MonoBehaviour
 
     public bool hasWeapon = false;
     public GameObject weapon;
-    
+    public GameObject weaponHolder;
+
+
+    private void Start()
+    {
+        weaponHolder.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -16,6 +22,7 @@ public class PlayerShoot : MonoBehaviour
             if (hasWeapon) {
                 Instantiate(weapon, transform.position, transform.rotation);
                 hasWeapon = false;
+                weaponHolder.SetActive(false);
             }
         }
         
@@ -25,6 +32,7 @@ public class PlayerShoot : MonoBehaviour
         if (other.tag == "pickupWeapon") {
             hasWeapon = true;
             Destroy(other.gameObject);
+            weaponHolder.SetActive(true);
         }
     }
 

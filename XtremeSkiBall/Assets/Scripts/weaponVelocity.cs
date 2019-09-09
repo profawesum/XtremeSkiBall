@@ -13,7 +13,7 @@ public class weaponVelocity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.AddForce(transform.forward * speed);
+        rb.AddForce(transform.forward * (speed * Time.deltaTime));
     }
 
     private void Update()
