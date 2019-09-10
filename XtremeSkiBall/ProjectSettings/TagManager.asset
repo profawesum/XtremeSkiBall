@@ -8,6 +8,7 @@ TagManager:
   - playerShot
   - pickupWeapon
   - firePoint
+  - weapon
   layers:
   - Default
   - TransparentFX

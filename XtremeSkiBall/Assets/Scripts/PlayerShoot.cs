@@ -20,7 +20,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) {
             if (hasWeapon) {
-                Instantiate(weapon, transform.position, transform.rotation);
+                Instantiate(weapon, (transform.position), transform.rotation);
                 hasWeapon = false;
                 weaponHolder.SetActive(false);
             }

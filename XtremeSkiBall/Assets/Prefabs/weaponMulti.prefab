@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8846211101133620198}
   m_Layer: 0
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,9 +141,10 @@ GameObject:
   - component: {fileID: 3601635111321205816}
   - component: {fileID: 3601635111321205815}
   - component: {fileID: -6674793009295492065}
+  - component: {fileID: 6484222741386718685}
   m_Layer: 0
-  m_Name: weapon
-  m_TagString: Untagged
+  m_Name: weaponMulti
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +253,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &-6674793009295492065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +287,19 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!65 &6484222741386718685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601635111321205814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7157499061816698472
 PrefabInstance:
   m_ObjectHideFlags: 0
