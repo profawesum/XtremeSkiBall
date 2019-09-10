@@ -18,24 +18,24 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
-            if (hasWeapon) {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (hasWeapon)
+            {
                 Instantiate(weapon, (transform.position), transform.rotation);
                 hasWeapon = false;
                 weaponHolder.SetActive(false);
             }
         }
-        
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "pickupWeapon") {
+        if (other.tag == "pickupWeapon")
+        {
             hasWeapon = true;
             Destroy(other.gameObject);
             weaponHolder.SetActive(true);
         }
     }
-
-
-
 }
