@@ -60,6 +60,8 @@ public class AI : MonoBehaviour
     public void FireWeapon()
     {
         //Firing Script stuff goes here
+
+
         hasWeapon = false;
     }
 
@@ -72,4 +74,5 @@ public class AI : MonoBehaviour
     {
         //Pickup Script goes here
     }
+
 }
