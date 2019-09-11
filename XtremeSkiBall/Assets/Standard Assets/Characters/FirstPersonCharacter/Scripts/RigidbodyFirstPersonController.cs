@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityEngine.Networking;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (Rigidbody))]
     [RequireComponent(typeof (CapsuleCollider))]
-    public class RigidbodyFirstPersonController : NetworkBehaviour
+    public class RigidbodyFirstPersonController : MonoBehaviour
     {
         [Serializable]
         public class MovementSettings
@@ -82,7 +81,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
-
+        public int PlayerNumber;
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
@@ -130,8 +129,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             RotateView();
-
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
                 m_Jump = true;
             }
@@ -215,8 +213,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             Vector2 input = new Vector2
                 {
-                    x = CrossPlatformInputManager.GetAxis("Horizontal"),
-                    y = CrossPlatformInputManager.GetAxis("Vertical")
+                    x = Input.GetAxis("J" + PlayerNumber + "Horizontal"),
+                    y = Input.GetAxis("J" + PlayerNumber + "Vertical")
                 };
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
@@ -231,7 +229,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
 
-            mouseLook.LookRotation (transform, cam.transform);
+            mouseLook.LookRotation (transform, cam.transform , PlayerNumber);
 
             if (m_IsGrounded || advancedSettings.airControl)
             {
