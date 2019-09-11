@@ -27,6 +27,7 @@ public class PlayerShoot : MonoBehaviour
         timer -= Time.deltaTime;
         if (Input.GetButtonDown("J" + GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber + "B")) {
             if (hasWeapon) {
+                timer = 2.0f;
                 Instantiate(weapon, (transform.position), transform.rotation);
                 hasWeapon = false;
                 weaponHolder.SetActive(false);
@@ -47,9 +48,12 @@ public class PlayerShoot : MonoBehaviour
 
         if (other.tag == "pickupWeapon")
         {
-            hasWeapon = true;
-            Destroy(other.gameObject);
-            weaponHolder.SetActive(true);
+            if (timer <= 0)
+            {
+                hasWeapon = true;
+                Destroy(other.gameObject);
+                weaponHolder.SetActive(true);
+            }
         }
         if (other.tag == "pickupBall")
         {

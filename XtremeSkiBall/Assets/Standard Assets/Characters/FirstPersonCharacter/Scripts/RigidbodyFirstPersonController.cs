@@ -100,6 +100,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private BoxCollider m_BoxCollider;
         private float m_HitTimeStart = 4.0f;
 
+        float timer;
+
         public bool IsChargeEnd { get; private set; } = true;
 
         public Vector3 Velocity
@@ -140,6 +142,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Update()
         {
+            timer -= Time.deltaTime;
+
             RotateView();
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
@@ -238,13 +242,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (other.tag == "killFloor") {
                 this.transform.position = new Vector3(0, 0, 0);
+                this.m_RigidBody.velocity = new Vector3 (0,0,0);
             }
 
-            if (other.tag == "weapon"){
-                if (hasBall) {
-                    hasBall = false;
+            if (other.tag == "weapon")
+            {
+                if (timer <= 0)
+                {
+                    m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
+                    m_HitTime = m_HitTimeStart;
+                    m_WasHit = true;
+                    timer = 0.8f;
                 }
-
             }
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {

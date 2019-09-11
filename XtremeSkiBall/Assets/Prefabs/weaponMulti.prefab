@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3601635111321205815}
-  speed: 10000
+  speed: 15000
   timer: 0
 --- !u!54 &3601635111321205815
 Rigidbody:
