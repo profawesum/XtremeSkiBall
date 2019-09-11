@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
 
     public bool hasWeapon = false;
     public bool hasBall = false;
+    float timer;
     public GameObject weapon;
     public GameObject ball;
     public GameObject weaponHolder;
@@ -23,6 +24,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         if (Input.GetButtonDown("J" + GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber + "B")) {
             if (hasWeapon) {
                 Instantiate(weapon, (transform.position), transform.rotation);
@@ -31,7 +33,8 @@ public class PlayerShoot : MonoBehaviour
             }
 
             if (hasBall) {
-                Instantiate(ball, (transform.position + new Vector3(0,0,2)), transform.rotation);
+                timer = 0.5f;
+                Instantiate(ball, (transform.position), transform.rotation);
                 hasBall = false;
                 ballHolder.SetActive(false);
             }
@@ -56,13 +59,22 @@ public class PlayerShoot : MonoBehaviour
         }
         if (other.tag == "ball")
         {
-            hasBall = true;
-            Destroy(other.gameObject);
-            ballHolder.SetActive(true);
+            if (timer <= 0)
+            {
+                hasBall = true;
+                Destroy(other.gameObject);
+                ballHolder.SetActive(true);
+            }
         }
         else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
         {
-            // Knock out script
+            if (hasBall)
+            {
+                Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
+                hasBall = false;
+                ballHolder.SetActive(false);
+
+            }// Knock out script
             //GameObject gameObject = Instantiate(weapon, (transform.position), transform.rotation);
             //hasWeapon = false;
             //weaponHolder.SetActive(false);
