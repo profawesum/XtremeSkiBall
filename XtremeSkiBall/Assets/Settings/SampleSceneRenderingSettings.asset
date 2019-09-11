@@ -16,7 +16,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0
     min: 0
     max: 4
   thicknessModifier:
@@ -156,10 +156,10 @@ MonoBehaviour:
     m_Value: 2
   skyAmbientMode:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   fogType:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 2
 --- !u!114 &114527594671542966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   maxShadowDistance:
     m_OverrideState: 1
@@ -228,7 +228,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 7
+    m_Value: 3
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -241,18 +241,18 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 20000
   updateMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 5
     min: 0
   includeSunInBaking:
     m_OverrideState: 0
     m_Value: 0
   sunSize:
-    m_OverrideState: 0
-    m_Value: 0.04
+    m_OverrideState: 1
+    m_Value: 0.101
     min: 0
     max: 1
   sunSizeConvergence:
@@ -266,14 +266,14 @@ MonoBehaviour:
     min: 0
     max: 5
   skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.74853384, g: 1, b: 0, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    m_Value: {r: 0.8679215, g: 1, b: 0, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

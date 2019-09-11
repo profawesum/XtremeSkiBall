@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3.960589, g: 5.083164, b: 6.5510283, a: 1}
+  m_IndirectSpecularColor: {r: 1.1484812, g: 0.39667282, b: 0.335269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1420,6 +1420,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: antialiasing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!1 &1001131039
@@ -1807,6 +1812,31 @@ PrefabInstance:
     - target: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
       propertyPath: ChargeTimeMax
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: clearColorMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681671098553371837, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: antialiasing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
@@ -2288,6 +2318,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5235121833293844002, guid: fe2d8e28be1eb8f4684c94b34a2efd55,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe2d8e28be1eb8f4684c94b34a2efd55, type: 3}
 --- !u!1001 &1751870811
@@ -2356,6 +2391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331509607701634541, guid: 61a575b52156ba749b0ce4cab140b394,
+        type: 3}
+      propertyPath: weight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61a575b52156ba749b0ce4cab140b394, type: 3}
