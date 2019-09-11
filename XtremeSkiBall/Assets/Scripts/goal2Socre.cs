@@ -19,7 +19,7 @@ public class goal2Socre : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "weapon" && this.tag == "goal2")
+        if (other.tag == "ball" && this.tag == "goal2")
         {
             goal++;
             goalText.text += goal.ToString();

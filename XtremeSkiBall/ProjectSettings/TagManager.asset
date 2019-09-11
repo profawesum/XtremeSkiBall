@@ -13,6 +13,9 @@ TagManager:
   - goal2
   - goalPost
   - goalPost2
+  - killFloor
+  - ball
+  - pickupBall
   layers:
   - Default
   - TransparentFX

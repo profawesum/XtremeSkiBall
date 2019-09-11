@@ -6,8 +6,11 @@ public class PlayerShoot : MonoBehaviour
 {
 
     public bool hasWeapon = false;
+    public bool hasBall = false;
     public GameObject weapon;
+    public GameObject ball;
     public GameObject weaponHolder;
+    public GameObject ballHolder;
 
 
     private void Start()
@@ -26,6 +29,12 @@ public class PlayerShoot : MonoBehaviour
                 hasWeapon = false;
                 weaponHolder.SetActive(false);
             }
+
+            if (hasBall) {
+                Instantiate(ball, (transform.position + new Vector3(0,0,2)), transform.rotation);
+                hasBall = false;
+                ballHolder.SetActive(false);
+            }
         }
     }
 
@@ -36,6 +45,18 @@ public class PlayerShoot : MonoBehaviour
             hasWeapon = true;
             Destroy(other.gameObject);
             weaponHolder.SetActive(true);
+        }
+        if (other.tag == "pickupBall")
+        {
+            hasBall = true;
+            Destroy(other.gameObject);
+            ballHolder.SetActive(true);
+        }
+        if (other.tag == "ball")
+        {
+            hasBall = true;
+            Destroy(other.gameObject);
+            ballHolder.SetActive(true);
         }
     }
 }

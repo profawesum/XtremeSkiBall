@@ -19,7 +19,7 @@ public class goalScore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "weapon" && this.tag == "goal") {
+        if (other.tag == "ball" && this.tag == "goal") {
             goal ++;
             goalText.text += goal.ToString();
             Debug.Log("Goal");

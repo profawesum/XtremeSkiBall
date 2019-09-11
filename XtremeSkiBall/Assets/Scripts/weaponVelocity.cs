@@ -24,4 +24,11 @@ public class weaponVelocity : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "killFloor") {
+            this.transform.position = new Vector3(0, 0, 0);
+        }
+    }
 }
