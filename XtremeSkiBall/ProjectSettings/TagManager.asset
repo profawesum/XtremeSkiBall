@@ -8,6 +8,14 @@ TagManager:
   - playerShot
   - pickupWeapon
   - firePoint
+  - weapon
+  - goal
+  - goal2
+  - goalPost
+  - goalPost2
+  - killFloor
+  - ball
+  - pickupBall
   layers:
   - Default
   - TransparentFX

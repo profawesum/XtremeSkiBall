@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/HarrysScene.unity
+    guid: 07a2fdade277a7d45be45dae12084b47
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: cbfe36cfddfde964d9dfce63a355d5dd
+    path: Assets/Scenes/MainLevelMultiplayer.unity
+    guid: 51ee5c6cfad86e3469358343b319dc8e
   m_configObjects: {}
