@@ -11,11 +11,11 @@ public class moveGoalCloser : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ball" && this.tag == "goalPost") {
-            goal.position += new Vector3(0, 0, -20);
+            goal.position += new Vector3(0, 0, -5);
         }
         if (other.tag == "ball" && this.tag == "goalPost2")
         {
-            goal2.position += new Vector3(0, 0, 20);
+            goal2.position += new Vector3(0, 0, 5);
         }
     }
 }
