@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1596858891}
   - component: {fileID: 1596858890}
   - component: {fileID: 1596858889}
+  - component: {fileID: 1596858892}
   m_Layer: 0
   m_Name: IntroVideo
   m_TagString: Untagged
@@ -282,6 +283,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba61c150223614897ff577f50a8ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoplayer: {fileID: 1596858888}
+  videofile: {fileID: 1596858890}
+  setAwake: 0
 --- !u!1 &1851139661
 GameObject:
   m_ObjectHideFlags: 0
