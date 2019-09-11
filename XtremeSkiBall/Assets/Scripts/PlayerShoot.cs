@@ -40,6 +40,8 @@ public class PlayerShoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+
         if (other.tag == "pickupWeapon")
         {
             hasWeapon = true;
@@ -57,6 +59,13 @@ public class PlayerShoot : MonoBehaviour
             hasBall = true;
             Destroy(other.gameObject);
             ballHolder.SetActive(true);
+        }
+        else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
+        {
+            // Knock out script
+            //GameObject gameObject = Instantiate(weapon, (transform.position), transform.rotation);
+            //hasWeapon = false;
+            //weaponHolder.SetActive(false);
         }
     }
 }
