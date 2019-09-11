@@ -9,6 +9,10 @@ TagManager:
   - pickupWeapon
   - firePoint
   - weapon
+  - goal
+  - goal2
+  - goalPost
+  - goalPost2
   layers:
   - Default
   - TransparentFX

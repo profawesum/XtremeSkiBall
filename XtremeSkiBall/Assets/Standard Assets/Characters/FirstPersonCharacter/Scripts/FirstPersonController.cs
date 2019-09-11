@@ -3,13 +3,12 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
-using UnityEngine.Networking;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : NetworkBehaviour
+    public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -47,12 +46,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-            m_Camera = GetComponentInChildren<Camera>();
-            m_Camera.enabled = false;
-            if (isLocalPlayer)
-            {
+            m_Camera = Camera.main;
                 m_CharacterController = GetComponent<CharacterController>();
-                m_Camera.enabled = true;
                 m_OriginalCameraPosition = m_Camera.transform.localPosition;
                 m_FovKick.Setup(m_Camera);
                 m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -61,28 +56,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Jumping = false;
                 m_AudioSource = GetComponent<AudioSource>();
                 m_MouseLook.Init(transform, m_Camera.transform);
-            }
         }
-
-        public override void OnStartLocalPlayer()
-        {
-            if (!isLocalPlayer)
-            {
-                GetComponentInChildren<Camera>().enabled = false;
-                m_Camera.enabled = false;
-            }
-        }
-
         // Update is called once per frame
         private void Update()
         {
-            if (isLocalPlayer)
-            {
-                if (!isLocalPlayer)
-                {
-                    GetComponentInChildren<Camera>().enabled = false;
-                    return;
-                }
                 RotateView();
                 // the jump state needs to read here to make sure it is not missed
                 if (!m_Jump)
@@ -104,7 +81,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 m_PreviouslyGrounded = m_CharacterController.isGrounded;
             }
-        }
 
 
         private void PlayLandingSound()
@@ -117,8 +93,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-            if (isLocalPlayer)
-            {
                 float speed;
                 GetInput(out speed);
                 // always move along the camera forward as it is the direction that it being aimed at
@@ -157,7 +131,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 m_MouseLook.UpdateCursorLock();
             }
-        }
 
 
         private void PlayJumpSound()
@@ -205,8 +178,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
-            if (isLocalPlayer)
-            {
                 Vector3 newCameraPosition;
                 if (!m_UseHeadBob)
                 {
@@ -227,13 +198,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
                 m_Camera.transform.localPosition = newCameraPosition;
             }
-        }
-
 
         private void GetInput(out float speed)
         {
-            if (isLocalPlayer)
-            {
                 // Read input
                 float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
                 float vertical = CrossPlatformInputManager.GetAxis("Vertical");
@@ -263,26 +230,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
                 }
             }
-            else
-            {
-                speed = 0;
-            }
-        }
 
 
         private void RotateView()
         {
-            if (isLocalPlayer)
-            {
                 m_MouseLook.LookRotation(transform, m_Camera.transform);
-            }
         }
 
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if (isLocalPlayer)
-            {
                 Rigidbody body = hit.collider.attachedRigidbody;
                 //dont move the rigidbody if the character is on top of it
                 if (m_CollisionFlags == CollisionFlags.Below)
@@ -295,7 +252,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     return;
                 }
                 body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
-            }
         }
     }
 }

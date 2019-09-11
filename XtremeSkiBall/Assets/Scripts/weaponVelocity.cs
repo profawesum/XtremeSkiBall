@@ -15,6 +15,7 @@ public class weaponVelocity : MonoBehaviour
     {
         rb.AddForce(transform.forward * (speed * Time.deltaTime));
     }
+    
 
     private void Update()
     {
