@@ -16,6 +16,7 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         weaponHolder.SetActive(false);
+        ballHolder.SetActive(false);
     }
 
     // Update is called once per frame

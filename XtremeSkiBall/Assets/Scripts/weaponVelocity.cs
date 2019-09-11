@@ -29,6 +29,7 @@ public class weaponVelocity : MonoBehaviour
     {
         if (other.tag == "killFloor") {
             this.transform.position = new Vector3(0, 0, 0);
+            this.rb.velocity = Vector3.zero;
         }
     }
 }
