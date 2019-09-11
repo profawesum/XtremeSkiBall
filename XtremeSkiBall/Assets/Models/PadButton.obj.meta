@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2f356e36413662e4293d84e18a988493
+guid: 71ce33c4c5dcb7d42bfc69d0deab59e8
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DiamondMat
-    second: {fileID: 2100000, guid: 2b9a8143c577cd4468a2bc03c783981d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
@@ -85,7 +80,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

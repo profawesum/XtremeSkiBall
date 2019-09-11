@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2f356e36413662e4293d84e18a988493
+guid: 1c3f4beebff050248897b08716a60603
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DiamondMat
-    second: {fileID: 2100000, guid: 2b9a8143c577cd4468a2bc03c783981d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -41,7 +36,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

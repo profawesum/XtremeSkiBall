@@ -16,6 +16,8 @@ TagManager:
   - killFloor
   - ball
   - pickupBall
+  - risePoint
+  - wall
   layers:
   - Default
   - TransparentFX
