@@ -340,8 +340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2000000}
   movementSettings:
-    ForwardSpeed: 8
-    BackwardSpeed: 4
+    ForwardSpeed: 25
+    BackwardSpeed: 25
     StrafeSpeed: 4
     RunMultiplier: 2
     RunKey: 304
@@ -392,7 +392,7 @@ MonoBehaviour:
   advancedSettings:
     groundCheckDistance: 0.1
     stickToGroundHelperDistance: 0.6
-    slowDownRate: 20
+    slowDownRate: 120
     airControl: 1
     shellOffset: 0
   PlayerNumber: 1

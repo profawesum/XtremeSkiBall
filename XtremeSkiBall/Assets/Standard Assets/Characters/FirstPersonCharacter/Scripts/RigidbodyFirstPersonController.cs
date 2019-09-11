@@ -20,6 +20,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             [HideInInspector] public float CurrentTargetSpeed = 8f;
 
+       
 #if !MOBILE_INPUT
             private bool m_Running;
 #endif
@@ -76,6 +77,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public float shellOffset; //reduce the radius by that ratio to avoid getting stuck in wall (a value of 0.1f is nice)
         }
 
+        public bool hasBall;
 
         public Camera cam;
         public MovementSettings movementSettings = new MovementSettings();
@@ -207,7 +209,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "killFloor") {
+                this.transform.position = new Vector3(0, 0, 0);
+            }
 
+
+            if (other.tag == "weapon"){
+                if (hasBall) {
+                    hasBall = false;
+                }
+
+            }
+        }
         private Vector2 GetInput()
         {
             
