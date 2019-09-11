@@ -10,11 +10,13 @@ public class goal2Socre : MonoBehaviour
     public int goal;
 
     public Text goalText;
+    public Text goalText1;
 
 
     private void Update()
     {
         goalText.text = goal.ToString();
+        goalText1.text = goal.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,7 @@ public class goal2Socre : MonoBehaviour
         {
             goal++;
             goalText.text += goal.ToString();
+            goalText1.text += goal.ToString();
             Debug.Log("Goal");
         }
     }
