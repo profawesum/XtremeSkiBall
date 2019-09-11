@@ -10,11 +10,13 @@ public class goalScore : MonoBehaviour
     public int goal;
 
     public Text goalText;
+    public Text goalText1;
     
 
     private void Update()
     {
         goalText.text = goal.ToString();
+        goalText1.text = goal.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,6 +24,7 @@ public class goalScore : MonoBehaviour
         if (other.tag == "ball" && this.tag == "goal") {
             goal ++;
             goalText.text += goal.ToString();
+            goalText1.text += goal.ToString();
             Debug.Log("Goal");
         }
     }
