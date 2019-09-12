@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2.104569, g: 3.0836356, b: 0.61724263, a: 1}
+  m_IndirectSpecularColor: {r: 1.1497153, g: 0.39733344, b: 0.33590257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5076,7 +5076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eab162a0442025438627c27ab6912ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 320
+  time: 120
   timeText: {fileID: 978858784}
   goal2: {fileID: 1528031209}
   goal1: {fileID: 1845773416}
@@ -5093,7 +5093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8436,7 +8436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8477,7 +8477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eab162a0442025438627c27ab6912ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 320
+  time: 120
   timeText: {fileID: 1620802673}
   goal2: {fileID: 1528031209}
   goal1: {fileID: 1845773416}
