@@ -19,6 +19,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public float JumpForce = 30f;
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             [HideInInspector] public float CurrentTargetSpeed = 8f;
+            //public Animator anim;
 
 
 #if !MOBILE_INPUT
@@ -28,6 +29,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public void UpdateDesiredTargetSpeed(Vector2 input)
             {
                 if (input == Vector2.zero) return;
+                //anim.SetBool("Run", true);
+
                 if (input.x > 0 || input.x < 0)
                 {
                     //strafe
@@ -99,6 +102,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_HitTime;
         private BoxCollider m_BoxCollider;
         private float m_HitTimeStart = 4.0f;
+        public Animator animator;
 
         float timer;
 
@@ -143,6 +147,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             timer -= Time.deltaTime;
+
+            animator.SetBool("Hit", false);
 
             RotateView();
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
@@ -249,6 +255,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    animator.SetBool("Hit", true);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
@@ -257,6 +264,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
+                animator.SetBool("Hit", true);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;
@@ -268,6 +276,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             if(Input.GetButtonDown("J" + PlayerNumber + "C") && m_IsCharged == false)
             {
+                animator.SetBool("Charge", true);
                 m_OldVelocity = m_RigidBody.velocity;
                 m_RigidBody.velocity = transform.forward * ChargeSpeed;
                 m_IsCharged = true;
@@ -283,6 +292,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
                 else if(m_ChargeTime <= 0 && !IsChargeEnd)
                 {
+                    animator.SetBool("Charge", false);
                     m_RigidBody.velocity = m_OldVelocity;
                     IsChargeEnd = true;
                 }
