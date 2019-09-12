@@ -104,6 +104,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_HitTimeStart = 4.0f;
         public Animator animator;
 
+        public AudioSource source;
+        public AudioClip hitsfx;
+
         float timer;
 
         public bool IsChargeEnd { get; private set; } = true;
@@ -256,6 +259,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     animator.SetBool("Hit", true);
+                    source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
@@ -265,6 +269,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
                 animator.SetBool("Hit", true);
+                source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;

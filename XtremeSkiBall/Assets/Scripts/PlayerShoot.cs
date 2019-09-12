@@ -15,6 +15,10 @@ public class PlayerShoot : MonoBehaviour
     public GameObject ballHolder;
 
 
+    public AudioSource source;
+    public AudioClip respawnBall;
+
+
     private void Start()
     {
         weaponHolder.SetActive(false);
@@ -26,7 +30,10 @@ public class PlayerShoot : MonoBehaviour
     {
         timer -= Time.deltaTime;
         if (Input.GetButtonDown("J" + GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber + "B")) {
+
+
             if (hasWeapon) {
+                source.PlayOneShot(respawnBall, 1.5F);
                 timer = 2.0f;
                 Instantiate(weapon, (transform.position), transform.rotation);
                 hasWeapon = false;
@@ -34,6 +41,7 @@ public class PlayerShoot : MonoBehaviour
             }
 
             if (hasBall) {
+                source.PlayOneShot(respawnBall, 1.5F);
                 timer = 0.5f;
                 Instantiate(ball, (transform.position), transform.rotation);
                 hasBall = false;

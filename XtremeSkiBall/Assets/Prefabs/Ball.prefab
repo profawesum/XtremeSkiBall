@@ -238,6 +238,8 @@ MonoBehaviour:
   rb: {fileID: 9100933115206972416}
   speed: 10000
   timer: 0
+  source: {fileID: 7220885888450255401, guid: e3bec82eded9d3e4aaed7e062518ecf7, type: 3}
+  respawnBall: {fileID: 8300000, guid: e250fff846959a04a9252ced79d0c14d, type: 3}
 --- !u!54 &9100933115206972416
 Rigidbody:
   m_ObjectHideFlags: 0

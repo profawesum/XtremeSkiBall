@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class goalScore : MonoBehaviour
 {
 
+    public AudioSource p1Source;
+    public AudioClip goalSfx;
+
+
     public int goal;
 
     public Text goalText;
@@ -22,6 +26,7 @@ public class goalScore : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ball" && this.tag == "goal") {
+            p1Source.PlayOneShot(goalSfx, 0.7F);
             goal ++;
             goalText.text += goal.ToString();
             goalText1.text += goal.ToString();
