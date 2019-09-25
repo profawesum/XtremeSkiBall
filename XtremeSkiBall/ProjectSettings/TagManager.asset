@@ -18,6 +18,7 @@ TagManager:
   - pickupBall
   - risePoint
   - wall
+  - JumpPad
   layers:
   - Default
   - TransparentFX
