@@ -17,7 +17,7 @@ public class AttackState : BaseState
         if (!Physics.Raycast(Ai.AiCam.transform.position, dirToTarget, dstToTarget, Ai.obstacleMask))
         {
             //Should be change to where the fireposition is on player
-            if(PredictiveAim(Ai.AiCam.transform, , Ai.Players[Ai.currentTarget].transform.position, /* Need player's velocity*/, 9.81f) == true)
+            if(/*PredictiveAim(Ai.AiCam.transform, , Ai.Players[Ai.currentTarget].transform.position, /* Need player's velocity, 9.81f) == true)*/true)
             { 
                 //Only fire when aiming is mostly correct
                 Ai.FireWeapon();
