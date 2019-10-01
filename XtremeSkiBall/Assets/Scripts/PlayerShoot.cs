@@ -78,6 +78,16 @@ public class PlayerShoot : MonoBehaviour
                 ballHolder.SetActive(true);
             }
         }
+        if (other.tag == "impactBall")
+        {
+            if (hasBall)
+            {
+                Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
+                hasBall = false;
+                ballHolder.SetActive(false);
+
+            }
+        }
         else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
         {
             if (hasBall)

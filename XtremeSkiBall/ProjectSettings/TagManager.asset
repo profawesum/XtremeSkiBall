@@ -18,6 +18,8 @@ TagManager:
   - pickupBall
   - risePoint
   - wall
+  - impactBall
+  - stunBall
   layers:
   - Default
   - TransparentFX
