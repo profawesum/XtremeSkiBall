@@ -13,7 +13,7 @@ public class GameStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerAssign.IsPlayerTwo = true;
+        //PlayerAssign.IsPlayerTwo = true;
         CurrentObject = Instantiate<GameObject>(preFab, spawnPosTeam1[0]);
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 1;
         SplitRef = FindObjectOfType<SplitScreen>();
