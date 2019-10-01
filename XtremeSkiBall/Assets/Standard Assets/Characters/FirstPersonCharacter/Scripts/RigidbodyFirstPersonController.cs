@@ -82,6 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public bool hasBall;
 
+        public float upThrust;
         public Camera cam;
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
@@ -273,6 +274,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;
+            }
+            if (other.tag == "JumpPad") {
+                Debug.Log("Added force to jump up");
+                m_RigidBody.AddForce(transform.up * (upThrust * Time.deltaTime));
             }
         }
 
