@@ -5,11 +5,7 @@ using UnityEngine;
 public class HotPotato : MonoBehaviour
 {
 
-    public Rigidbody rb;
-    public GameObject goalBall;
-
-    public float timer;
-
+    //bools to check which type the goal ball is
     public bool hotPotato;
     public bool fireItUp;
     public bool slowThrow;
@@ -19,17 +15,84 @@ public class HotPotato : MonoBehaviour
     public bool stickyBall;
 
 
-    public enum ballModifier { fireItUp };
-
-
-    // Start is called before the first frame update
-    void Start()
+    //checks to see if the player has collided with a ball that has a modifier
+    private void OnTriggerEnter(Collider other)
     {
-        rb = GetComponent<Rigidbody>();
+        if (other.tag == "hotPotato")
+        {
+            hotPotato = true;
+            fireItUp = false;
+            slowThrow = false;
+            heavyBall = false;
+            BouncyBall = false;
+            slidyBall = false;
+            stickyBall = false;
+        }
+        if (other.tag == "fireItUp")
+        {
+            hotPotato = false;
+            fireItUp = true;
+            slowThrow = false;
+            heavyBall = false;
+            BouncyBall = false;
+            slidyBall = false;
+            stickyBall = false;
+        }
+        if (other.tag == "slowThrow")
+        {
+            hotPotato = false;
+            fireItUp = false;
+            slowThrow = true;
+            heavyBall = false;
+            BouncyBall = false;
+            slidyBall = false;
+            stickyBall = false;
+        }
+        if (other.tag == "heavyBall")
+        {
+            hotPotato = false;
+            fireItUp = false;
+            slowThrow = false;
+            heavyBall = true;
+            BouncyBall = false;
+            slidyBall = false;
+            stickyBall = false;
+        }
+        if (other.tag == "bouncyBall")
+        {
+            hotPotato = false;
+            fireItUp = false;
+            slowThrow = false;
+            heavyBall = false;
+            BouncyBall = true;
+            slidyBall = false;
+            stickyBall = false;
+        }
+        if (other.tag == "slidyBall")
+        {
+            hotPotato = false;
+            fireItUp = false;
+            slowThrow = false;
+            heavyBall = false;
+            BouncyBall = false;
+            slidyBall = true;
+            stickyBall = false;
+        }
+        if (other.tag == "stickyBall")
+        {
+            hotPotato = false;
+            fireItUp = false;
+            slowThrow = false;
+            heavyBall = false;
+            BouncyBall = false;
+            slidyBall = false;
+            stickyBall = true;
+        }
     }
 
 
-    int checkBallType() {
+    //checks what type the goal ball currently is
+    public int checkBallType() {
 
         if (hotPotato == true)
         {
@@ -37,34 +100,28 @@ public class HotPotato : MonoBehaviour
         }
         else if (fireItUp == true)
         {
-            //set it up so the ball fires upwards
+            return 2;
         }
         else if (slowThrow == true)
         {
-            //reduce the balls mass and the velocity
+            return 3;
         }
         else if (heavyBall == true)
         {
-            //change the balls mass to be heavier
+            return 4;
         }
         else if (BouncyBall == true)
         {
-            //apply a physics material
+            return 5;
         }
         else if (slidyBall == true)
         {
-            return 0;
+            return 6;
         }
         else if (stickyBall == true)
         {
-            return 0;
+            return 7;
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-
-
-
 }
