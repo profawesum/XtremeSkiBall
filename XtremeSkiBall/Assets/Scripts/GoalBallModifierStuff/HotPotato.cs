@@ -29,41 +29,41 @@ public class HotPotato : MonoBehaviour
     }
 
 
-    int checkBallType() {
+    //int checkBallType() {
 
-        if (hotPotato == true)
-        {
-            return 1;
-        }
-        else if (fireItUp == true)
-        {
-            //set it up so the ball fires upwards
-        }
-        else if (slowThrow == true)
-        {
-            //reduce the balls mass and the velocity
-        }
-        else if (heavyBall == true)
-        {
-            //change the balls mass to be heavier
-        }
-        else if (BouncyBall == true)
-        {
-            //apply a physics material
-        }
-        else if (slidyBall == true)
-        {
-            return 0;
-        }
-        else if (stickyBall == true)
-        {
-            return 0;
-        }
-        else
-        {
-            return 0;
-        }
-    }
+    //    if (hotPotato == true)
+    //    {
+    //        return 1;
+    //    }
+    //    else if (fireItUp == true)
+    //    {
+    //        //set it up so the ball fires upwards
+    //    }
+    //    else if (slowThrow == true)
+    //    {
+    //        //reduce the balls mass and the velocity
+    //    }
+    //    else if (heavyBall == true)
+    //    {
+    //        //change the balls mass to be heavier
+    //    }
+    //    else if (BouncyBall == true)
+    //    {
+    //        //apply a physics material
+    //    }
+    //    else if (slidyBall == true)
+    //    {
+    //        return 0;
+    //    }
+    //    else if (stickyBall == true)
+    //    {
+    //        return 0;
+    //    }
+    //    else
+    //    {
+    //        return 0;
+    //    }
+    //}
 
 
 
