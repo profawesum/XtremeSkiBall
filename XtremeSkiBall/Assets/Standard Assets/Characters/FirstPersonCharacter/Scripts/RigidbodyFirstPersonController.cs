@@ -166,6 +166,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             GroundCheck();
             ChargeAttack();
+            QuickDrop();
 
             Vector2 input = GetInput();
 
@@ -226,6 +227,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jump = false;
         }
 
+
+        private void QuickDrop()
+        {
+            if (Input.GetButtonDown("J" + PlayerNumber + "RightTrigger"))
+            {
+                m_RigidBody.AddForce(Physics.gravity * 2f, ForceMode.Acceleration); // Change the 2f to increase and decrease the force
+            }
+        }
 
         private float SlopeMultiplier()
         {
