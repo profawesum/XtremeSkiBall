@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2.0216231, g: 2.550787, b: 0.6091514, a: 1}
+  m_IndirectSpecularColor: {r: 1.1497153, g: 0.39733344, b: 0.33590257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -206,7 +206,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b1f69186f317654aa11a6dc68c4b92c, type: 2}
+      objectReference: {fileID: 2100000, guid: 261015c3c3964d54f94738eb51339cf5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604b4d436df5bcd4f8bc98c864186ac2, type: 3}
 --- !u!1001 &310208798
@@ -363,7 +363,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b1f69186f317654aa11a6dc68c4b92c, type: 2}
+      objectReference: {fileID: 2100000, guid: 761c323b84a262345be74364956c6fb5, type: 2}
     - target: {fileID: -4216859302048453862, guid: 526ee8e7fbc5b30429def28a6121ef1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,7 +912,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b1f69186f317654aa11a6dc68c4b92c, type: 2}
+      objectReference: {fileID: 2100000, guid: 9af9588c53d9b3a42be2d05fc5a73d45, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94fb9bfc9396bcf489f0f2012af96f17, type: 3}
 --- !u!1001 &1792316370
@@ -926,6 +926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RigidBodyFPSController 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921009293530076103, guid: a626e5226e739a843beead72ff7241f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921009293529845731, guid: a626e5226e739a843beead72ff7241f6,
         type: 3}
