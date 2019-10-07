@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a7c094165ee60745bee13c4c3ea269e
+guid: e3350810cf1ba0444aae5fe1d6539df6
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
@@ -38,8 +38,8 @@ ModelImporter:
       name: STARTdash
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 239
-      lastFrame: 255
+      firstFrame: 240
+      lastFrame: 254
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

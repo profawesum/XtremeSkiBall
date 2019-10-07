@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: ea76e14750afa284b90c394c4d0b961e
+guid: 228af1439794d0f4f9dbc3eb7647d558
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Start&EndDASH
+    second: Run
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Start&EndDASH
+      name: Run
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 239
-      lastFrame: 270
+      firstFrame: 100
+      lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

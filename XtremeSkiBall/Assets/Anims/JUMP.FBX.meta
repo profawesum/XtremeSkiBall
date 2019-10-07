@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8a7571467309d344994e08f7b506eb7
+guid: dfd21fcb4317a354ebe157886d45a443
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
@@ -38,7 +38,7 @@ ModelImporter:
       name: JUMP
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 152
+      firstFrame: 151
       lastFrame: 177
       wrapMode: 0
       orientationOffsetY: 0

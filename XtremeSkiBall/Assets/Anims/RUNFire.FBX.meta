@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: ac399b5b11322414092d23090dfba4ed
+guid: 8bf90f25385e3da44a54826fb4ce7d78
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Start&EndJUMP
+    second: RunFIRE
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Start&EndJUMP
+      name: RunFIRE
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 125
-      lastFrame: 208
+      firstFrame: 310
+      lastFrame: 332
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e17a4728d5f59e449eae511d9557cee
+guid: 88ff1b9ec517d7545a9cfd298a304bd3
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
@@ -38,8 +38,8 @@ ModelImporter:
       name: DASH
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 255
-      lastFrame: 256
+      firstFrame: 254
+      lastFrame: 255
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
