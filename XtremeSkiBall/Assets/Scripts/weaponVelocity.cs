@@ -56,7 +56,7 @@ public class weaponVelocity : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if the ball hits the killFloor tag then respawn it in the center with no velocity
-        if (other.tag == "killFloor" && this.tag == "ball"|| other.tag == "killFloor" && this.tag == "hotPotato" || other.tag == "killFloor" && this.tag == "slowBall"
+        if (other.tag == "killFloor" && this.tag == "ball"|| other.tag == "killFloor" && this.tag == "hotPotato" || other.tag == "killFloor" && this.tag == "slowThrow"
             || other.tag == "killFloor" && this.tag == "fireItUp" || other.tag == "killFloor" && this.tag == "heavyBall" || other.tag == "killFloor" && this.tag == "bouncyBall" 
             || other.tag == "killFloor" && this.tag == "slidyBall" || other.tag == "killFloor" && this.tag == "stickyBall") {
 
