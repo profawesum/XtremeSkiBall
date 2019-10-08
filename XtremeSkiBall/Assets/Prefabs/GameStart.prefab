@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21d6b8a61736cb45bfa6479fa5e8ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPos:
+  preFab: {fileID: 525453703200029334, guid: f3b94daaad10cbd4095ad7b258f0dfc4, type: 3}
+  spawnPosTeam1:
   - {fileID: 0}
   - {fileID: 0}
+  spawnPosTeam2:
   - {fileID: 0}
   - {fileID: 0}
