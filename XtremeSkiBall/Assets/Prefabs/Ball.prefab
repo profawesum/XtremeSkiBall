@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1606096510318192106}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: heavyBall
+  m_TagString: hotPotato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +244,8 @@ MonoBehaviour:
   - slidyBall
   - stickyBall
   rb: {fileID: 9100933115206972416}
+  ballResetPos: {fileID: 4323003101957805539, guid: 1386f8f4eb7880749a74a596c09ab622,
+    type: 3}
   speed: 10000
   timer: 0
   source: {fileID: 7220885888450255401, guid: e3bec82eded9d3e4aaed7e062518ecf7, type: 3}
@@ -256,7 +258,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100933115206972417}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1

@@ -51,7 +51,7 @@ public class PlayerShoot : MonoBehaviour
         //timer for the hotPotato Ball
         if (hasBall) {
             //checks to see if the ball being held is of type hot potato
-            if (randomBallModifiers.checkBallType() == 1) {
+            if (randomBallModifiers.checkBallType() == 1 && randomBallMode) {
                 //increase the timer
                 dropTimer++;
                 //if the timer reaches a set number then force the player to throw the ball

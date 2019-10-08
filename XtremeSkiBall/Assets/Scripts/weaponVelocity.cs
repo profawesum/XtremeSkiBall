@@ -9,6 +9,7 @@ public class weaponVelocity : MonoBehaviour
 
     //components
     public Rigidbody rb;
+    public GameObject ballResetPos;
 
     //floats
     public float speed;
@@ -36,6 +37,10 @@ public class weaponVelocity : MonoBehaviour
             //add force to the ball
             rb.AddForce(transform.forward * (speed * Time.deltaTime));
         }
+        if (this.tag == "hotPotato") {
+            //add force to the ball
+            rb.AddForce(transform.forward * (50000 * Time.deltaTime));
+        }
  
     }
 
@@ -62,7 +67,7 @@ public class weaponVelocity : MonoBehaviour
 
             this.tag = ballTypes[Random.Range(0, ballTypes.Length)];
             source.PlayOneShot(respawnBall, 0.7F);
-            this.transform.position = new Vector3(0, 0, 0);
+            this.transform.position = ballResetPos.transform.position;
             this.rb.velocity = Vector3.zero;
         }
     }
