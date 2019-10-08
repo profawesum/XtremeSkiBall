@@ -37,8 +37,12 @@ public class weaponVelocity : MonoBehaviour
             //add force to the ball
             rb.AddForce(transform.forward * (speed * Time.deltaTime));
         }
-        if (this.tag == "hotPotato") {
+        if (this.tag == "hotPotato")
+        {
             //add force to the ball
+            rb.AddForce(transform.forward * (50000 * Time.deltaTime));
+        }
+        else {
             rb.AddForce(transform.forward * (50000 * Time.deltaTime));
         }
  
@@ -66,7 +70,7 @@ public class weaponVelocity : MonoBehaviour
             || other.tag == "killFloor" && this.tag == "slidyBall" || other.tag == "killFloor" && this.tag == "stickyBall") {
 
             this.tag = ballTypes[Random.Range(0, ballTypes.Length)];
-            source.PlayOneShot(respawnBall, 0.7F);
+            //source.PlayOneShot(respawnBall, 0.7F);
             this.transform.position = ballResetPos.transform.position;
             this.rb.velocity = Vector3.zero;
         }

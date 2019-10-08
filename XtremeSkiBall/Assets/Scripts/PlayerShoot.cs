@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject ballHolder;
 
     //audio sources
-    public AudioSource source;
+    //public AudioSource source;
     public AudioClip respawnBall;
 
     //used for the random gameMode when the player throws a ball
@@ -70,7 +70,7 @@ public class PlayerShoot : MonoBehaviour
             //if the player has a weapon ball
             if (hasWeapon) {
                 //play the audio
-                source.PlayOneShot(respawnBall, 1.5F);
+                //source.PlayOneShot(respawnBall, 1.5F);
                 timer = 2.0f;
                 //create and throw a ball
                 Instantiate(weapon, (transform.position), transform.rotation);
@@ -152,7 +152,7 @@ public class PlayerShoot : MonoBehaviour
                 }// end of random ball mode
 
                 //launch the goal ball
-                source.PlayOneShot(respawnBall, 1.5F);
+                //source.PlayOneShot(respawnBall, 1.5F);
                 timer = 3.0f;
                 Instantiate(ball, (transform.position), transform.rotation);
                 //make it so the player does not have the ball and set the holder to false
