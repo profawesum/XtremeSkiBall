@@ -107,6 +107,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource source;
         public AudioClip hitsfx;
+        bool fastDrop = true;
 
         float timer;
 
@@ -166,6 +167,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             GroundCheck();
             ChargeAttack();
+            QuickDrop();
 
             Vector2 input = GetInput();
 
@@ -188,7 +190,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_IsGrounded)
             {
                 m_RigidBody.drag = 5f;
-
+                fastDrop = true;
                 if (m_Jump)
                 {
                     m_RigidBody.drag = 0f;
@@ -226,6 +228,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jump = false;
         }
 
+
+        public float gravityMultiplier = 10;
+
+        private void QuickDrop()
+        {
+            if (Input.GetButtonDown("J" + PlayerNumber + "RightTrigger") && fastDrop)
+            {
+                fastDrop = false;
+                m_RigidBody.AddForce(Physics.gravity * gravityMultiplier); // Change the 2f to increase and decrease the force
+            }
+        }
 
         private float SlopeMultiplier()
         {

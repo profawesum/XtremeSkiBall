@@ -19,6 +19,13 @@ TagManager:
   - risePoint
   - wall
   - JumpPad
+  - hotPotato
+  - fireItUp
+  - slowThrow
+  - heavyBall
+  - bouncyBall
+  - slidyBall
+  - stickyBall
   layers:
   - Default
   - TransparentFX
