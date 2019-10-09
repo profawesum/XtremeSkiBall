@@ -166,6 +166,7 @@ MonoBehaviour:
   animator: {fileID: 7450349584492028659}
   source: {fileID: 0}
   hitsfx: {fileID: 8300000, guid: 474299943f35fe745be5d79a6ef3e72a, type: 3}
+  timer: 0
   gravityMultiplier: 1250
 --- !u!95 &4044320455647065440
 Animator:
@@ -674,7 +675,12 @@ PrefabInstance:
     - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 3795275272255996358, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
