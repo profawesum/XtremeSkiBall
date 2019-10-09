@@ -108,6 +108,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip hitsfx;
 
         float timer;
+        bool stunned;
+        float stimer;
 
         public bool IsChargeEnd { get; private set; } = true;
 
@@ -157,6 +159,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
                 m_Jump = true;
+            }
+
+            if (stunned == true)
+            {
+                stimer -= Time.deltaTime;
+
+                if (stimer <= 0)
+                {
+                    stunned = false;
+                }
             }
         }
 
@@ -288,6 +300,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
                     timer = 0.8f;
+                    stunned = true;
+                    stimer = 20;
                 }
             }
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
@@ -302,44 +316,50 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void ChargeAttack()
         {
-            
-            if(Input.GetButtonDown("J" + PlayerNumber + "C") && m_IsCharged == false)
-            {
-                animator.SetBool("Charge", true);
-                m_OldVelocity = m_RigidBody.velocity;
-                m_RigidBody.velocity = transform.forward * ChargeSpeed;
-                m_IsCharged = true;
-                m_ChargeTime = ChargeTimeMax;
-                m_ChargeCooldown = ChargeCooldownMax;
-                IsChargeEnd = false;
-            }
-            if(m_IsCharged)
-            {
-                if(m_ChargeCooldown <= 0)
+            if (stunned == false)
+            { 
+                if (Input.GetButtonDown("J" + PlayerNumber + "C") && m_IsCharged == false)
                 {
-                    m_IsCharged = false;
+                    animator.SetBool("Charge", true);
+                    m_OldVelocity = m_RigidBody.velocity;
+                    m_RigidBody.velocity = transform.forward * ChargeSpeed;
+                    m_IsCharged = true;
+                    m_ChargeTime = ChargeTimeMax;
+                    m_ChargeCooldown = ChargeCooldownMax;
+                    IsChargeEnd = false;
                 }
-                else if(m_ChargeTime <= 0 && !IsChargeEnd)
+                if (m_IsCharged)
                 {
-                    animator.SetBool("Charge", false);
-                    m_RigidBody.velocity = m_OldVelocity;
-                    IsChargeEnd = true;
+                    if (m_ChargeCooldown <= 0)
+                    {
+                        m_IsCharged = false;
+                    }
+                    else if (m_ChargeTime <= 0 && !IsChargeEnd)
+                    {
+                        animator.SetBool("Charge", false);
+                        m_RigidBody.velocity = m_OldVelocity;
+                        IsChargeEnd = true;
+                    }
+                    m_ChargeCooldown = m_ChargeCooldown - Time.deltaTime;
+                    m_ChargeTime = m_ChargeTime - Time.deltaTime;
                 }
-                m_ChargeCooldown = m_ChargeCooldown - Time.deltaTime;
-                m_ChargeTime = m_ChargeTime - Time.deltaTime;
             }
         }
 
         private Vector2 GetInput()
         {
-            
+           
             Vector2 input = new Vector2
-                {
-                    x = Input.GetAxis("J" + PlayerNumber + "Horizontal"),
-                    y = Input.GetAxis("J" + PlayerNumber + "Vertical")
-                };
-			movementSettings.UpdateDesiredTargetSpeed(input);
+            {
+                x = Input.GetAxis("J" + PlayerNumber + "Horizontal"),
+                y = Input.GetAxis("J" + PlayerNumber + "Vertical")
+            };
+            if (stunned == false)
+            {
+                movementSettings.UpdateDesiredTargetSpeed(input);
+            }
             return input;
+            
         }
 
 
@@ -381,6 +401,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jumping = false;
             }
+        }
+
+        private void Order66()
+        {
+            Application.Quit();
         }
     }
 }
