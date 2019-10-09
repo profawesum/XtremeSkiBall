@@ -109,7 +109,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip hitsfx;
         bool fastDrop = true;
 
-        float timer;
+        public float timer;
 
         public bool IsChargeEnd { get; private set; } = true;
 
@@ -273,17 +273,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     animator.SetBool("Hit", true);
-                    source.PlayOneShot(hitsfx, 0.7F);
+                    //source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
-                    timer = 0.8f;
+                    timer = 3.5f;
                 }
             }
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
                 animator.SetBool("Hit", true);
-                source.PlayOneShot(hitsfx, 0.7F);
+                //source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;

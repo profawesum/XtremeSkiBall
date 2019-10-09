@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &676947664978736240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6342606217823643264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c15187691425384a8678e33ecf2c794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotPotato: 0
-  fireItUp: 0
-  slowThrow: 0
-  heavyBall: 0
-  BouncyBall: 0
-  slidyBall: 0
-  stickyBall: 0
 --- !u!1 &895179770949336832
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,8 +439,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.51
-  m_Height: 1.6
+  m_Radius: 1.17
+  m_Height: 2.05
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &895179771324287231
@@ -599,6 +580,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &676947664978736240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342606217823643264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c15187691425384a8678e33ecf2c794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotPotato: 0
+  fireItUp: 0
+  slowThrow: 0
+  heavyBall: 0
+  BouncyBall: 0
+  slidyBall: 0
+  stickyBall: 0
 --- !u!1001 &895179770385397739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -696,16 +696,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Run
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 32e246810dbb189419bd576026709cd7, type: 2}
-    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
-        type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -759,6 +749,16 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 32e246810dbb189419bd576026709cd7, type: 2}
+    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
+        type: 3}
+      propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2927792998606800557, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
@@ -852,6 +852,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3795275272255996358, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
       propertyPath: source
@@ -907,11 +912,6 @@ PrefabInstance:
       propertyPath: respawnBall
       value: 
       objectReference: {fileID: 8300000, guid: c804e92eac02dff45a0717d6a8d03a46, type: 3}
-    - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93a0d8d5de87bd418881ac19217fcf5, type: 3}
 --- !u!1 &6342606217823643264 stripped
