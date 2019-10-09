@@ -20,6 +20,7 @@ TagManager:
   - wall
   - impactBall
   - stunBall
+  - JumpPad
   layers:
   - Default
   - TransparentFX
