@@ -196,8 +196,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.51
-  m_Height: 1.6
+  m_Radius: 1.17
+  m_Height: 2.05
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &5518108518417859957
@@ -671,6 +671,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3795275272255996358, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
       propertyPath: randomBallModifiers
@@ -726,11 +731,6 @@ PrefabInstance:
       propertyPath: respawnBall
       value: 
       objectReference: {fileID: 8300000, guid: c804e92eac02dff45a0717d6a8d03a46, type: 3}
-    - target: {fileID: 3795275272255996357, guid: c93a0d8d5de87bd418881ac19217fcf5,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93a0d8d5de87bd418881ac19217fcf5, type: 3}
 --- !u!1 &1800707526479784714 stripped
@@ -756,16 +756,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Run
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 32e246810dbb189419bd576026709cd7, type: 2}
-    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
-        type: 3}
-      propertyPath: m_CullingMode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
         type: 3}
@@ -820,6 +810,16 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 32e246810dbb189419bd576026709cd7, type: 2}
+    - target: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
+        type: 3}
+      propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2927792998606800557, guid: fc91073787b6f444ebce3b8b6dcc4bf9,

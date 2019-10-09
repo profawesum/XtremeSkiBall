@@ -16,10 +16,12 @@ public class GameStart : MonoBehaviour
     {
         //PlayerAssign.IsPlayerTwo = true;
         CurrentObject = Instantiate<GameObject>(RedPrefab, spawnPosTeam1[0]);
+        CurrentObject.transform.position = spawnPosTeam1[0].position;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 1;
         SplitRef = FindObjectOfType<SplitScreen>();
         SplitRef.Player1 = CurrentObject.GetComponentInChildren<Camera>();
         CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[0]);
+        CurrentObject.transform.position = spawnPosTeam2[0].position;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 2;
         SplitRef.Player2 = CurrentObject.GetComponentInChildren<Camera>();
         //Assign the main cameras of the objects to the splitscreen.
@@ -30,9 +32,11 @@ public class GameStart : MonoBehaviour
         else
         {
             CurrentObject = Instantiate<GameObject>(RedPrefab, spawnPosTeam1[1]);
+            CurrentObject.transform.position = spawnPosTeam1[1].position;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 3;
             SplitRef.Player3 = CurrentObject.GetComponentInChildren<Camera>();
             CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[1]);
+            CurrentObject.transform.position = spawnPosTeam2[1].position;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 4;
             SplitRef.Player4 = CurrentObject.GetComponentInChildren<Camera>();
         }
