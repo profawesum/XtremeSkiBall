@@ -20,8 +20,6 @@ public class menuMove : MonoBehaviour
         fourPlayerText.SetActive(false);
     }
 
-
-
     public void onPlayClicked() {
         RandomText.SetActive(true);
         RegularText.SetActive(true);
@@ -39,24 +37,24 @@ public class menuMove : MonoBehaviour
     }
 
     public void on2PlayerClicked() {
-        //PlayerAssign.IsPlayerTwo = true;
+        PlayerAssign.IsPlayerTwo = true;
         //load the random level with 2 players
         if (isRandom)
         {
-            Application.LoadLevel(4);
+            Application.LoadLevel(2);
         }
         //load the level that is not random with two players
         else {
-            Application.LoadLevel(3);
+            Application.LoadLevel(2);
         }
     }
 
     public void on4PlayerClicked() {
-       // PlayerAssign.IsPlayerTwo = false;
+         PlayerAssign.IsPlayerTwo = false;
         //load random level with 4 players
         if (isRandom)
         {
-            Application.LoadLevel(5);
+            Application.LoadLevel(2);
         }
         //load the level that is not random with four players
         else
