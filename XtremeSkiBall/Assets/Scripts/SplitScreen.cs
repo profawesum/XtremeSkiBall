@@ -23,9 +23,9 @@ public class SplitScreen : MonoBehaviour
         }
         else
         {
-            Player1.rect = new Rect(0, 0, 0.5f, 0.5f);
+            Player1.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
             Player2.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
-            Player3.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            Player3.rect = new Rect(0, 0, 0.5f, 0.5f);
             Player4.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
         }
         isHorizontal = true;
