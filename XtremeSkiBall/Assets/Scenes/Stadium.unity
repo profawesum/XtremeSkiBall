@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2.176072, g: 3.7607677, b: 0.60426193, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -979,11 +979,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: beem 2 (2)
       objectReference: {fileID: 0}
-    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: eea8486e6b7e27640910918ea892d4d3, type: 2}
     - target: {fileID: -4216859302048453862, guid: 280d3db6a7bdd684fab1fc91fdd74425,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1054,6 +1049,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.0814576
       objectReference: {fileID: 0}
+    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eea8486e6b7e27640910918ea892d4d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280d3db6a7bdd684fab1fc91fdd74425, type: 3}
 --- !u!1001 &225884095
@@ -3485,11 +3485,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: beem 2
       objectReference: {fileID: 0}
-    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9854fa34614e81143a48efbd930eddbb, type: 2}
     - target: {fileID: -4216859302048453862, guid: 280d3db6a7bdd684fab1fc91fdd74425,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3560,6 +3555,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.0814576
       objectReference: {fileID: 0}
+    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9854fa34614e81143a48efbd930eddbb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280d3db6a7bdd684fab1fc91fdd74425, type: 3}
 --- !u!4 &701406411 stripped
@@ -3853,6 +3853,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: explosiveBall
+      value: 
+      objectReference: {fileID: 4747609211540344182, guid: a8da809c240dfb74280348a0de639f32,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: impactBall
+      value: 
+      objectReference: {fileID: 1934480803925578565, guid: 88654abbf5f9a2642a6ec92d66a25811,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: stunBall
+      value: 
+      objectReference: {fileID: 7321792500769783604, guid: 2eb2e95b43a16f04ea35d82ccfd3fe7b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 793942aa73ea64d47aa691e98f055304, type: 3}
 --- !u!1001 &734092758
@@ -4304,6 +4322,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: explosiveBall
+      value: 
+      objectReference: {fileID: 4747609211540344182, guid: a8da809c240dfb74280348a0de639f32,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: impactBall
+      value: 
+      objectReference: {fileID: 1934480803925578565, guid: 88654abbf5f9a2642a6ec92d66a25811,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: stunBall
+      value: 
+      objectReference: {fileID: 7321792500769783604, guid: 2eb2e95b43a16f04ea35d82ccfd3fe7b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 793942aa73ea64d47aa691e98f055304, type: 3}
 --- !u!1 &807817059
@@ -4499,6 +4535,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: explosiveBall
+      value: 
+      objectReference: {fileID: 4747609211540344182, guid: a8da809c240dfb74280348a0de639f32,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: impactBall
+      value: 
+      objectReference: {fileID: 1934480803925578565, guid: 88654abbf5f9a2642a6ec92d66a25811,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: stunBall
+      value: 
+      objectReference: {fileID: 7321792500769783604, guid: 2eb2e95b43a16f04ea35d82ccfd3fe7b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 793942aa73ea64d47aa691e98f055304, type: 3}
 --- !u!1001 &827075328
@@ -6897,11 +6951,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: beem 2 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: eea8486e6b7e27640910918ea892d4d3, type: 2}
     - target: {fileID: -4216859302048453862, guid: 280d3db6a7bdd684fab1fc91fdd74425,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6972,6 +7021,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.0814576
       objectReference: {fileID: 0}
+    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eea8486e6b7e27640910918ea892d4d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280d3db6a7bdd684fab1fc91fdd74425, type: 3}
 --- !u!1 &1222774165 stripped
@@ -7604,6 +7658,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: explosiveBall
+      value: 
+      objectReference: {fileID: 4747609211540344182, guid: a8da809c240dfb74280348a0de639f32,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: impactBall
+      value: 
+      objectReference: {fileID: 1934480803925578565, guid: 88654abbf5f9a2642a6ec92d66a25811,
+        type: 3}
+    - target: {fileID: 1122694520273571650, guid: 793942aa73ea64d47aa691e98f055304,
+        type: 3}
+      propertyPath: stunBall
+      value: 
+      objectReference: {fileID: 7321792500769783604, guid: 2eb2e95b43a16f04ea35d82ccfd3fe7b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 793942aa73ea64d47aa691e98f055304, type: 3}
 --- !u!1 &1315678736 stripped
@@ -8464,7 +8536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1448637921
 GameObject:
@@ -11841,11 +11913,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: beem 2 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9854fa34614e81143a48efbd930eddbb, type: 2}
     - target: {fileID: -4216859302048453862, guid: 280d3db6a7bdd684fab1fc91fdd74425,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11916,6 +11983,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.0814576
       objectReference: {fileID: 0}
+    - target: {fileID: -6283877591383234665, guid: 280d3db6a7bdd684fab1fc91fdd74425,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9854fa34614e81143a48efbd930eddbb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280d3db6a7bdd684fab1fc91fdd74425, type: 3}
 --- !u!4 &2123232289 stripped
@@ -12117,7 +12189,7 @@ PrefabInstance:
     - target: {fileID: 5492722380864676384, guid: b72f785e2983c824095b8d6b35652174,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5492722380864676384, guid: b72f785e2983c824095b8d6b35652174,
         type: 3}

@@ -28,7 +28,8 @@ public class randomSpawnWeapon : MonoBehaviour
             timer += Time.deltaTime;
         }
         if (timer >= maxTimer) {
-            rng = (int)((Random.Range(1, 2)) + 0.5);
+            rng = (int)((Random.Range(2, 5)) + 0.5);
+            rng = 2;
             if (rng == 1)
             {
                 Instantiate(weapon, this.transform.position, this.transform.rotation);
