@@ -280,6 +280,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.tag == "killFloor") {
                 this.transform.position = new Vector3(0, 0, 0);
                 this.m_RigidBody.velocity = new Vector3 (0,0,0);
+                
             }
 
             if (other.tag == "weapon")

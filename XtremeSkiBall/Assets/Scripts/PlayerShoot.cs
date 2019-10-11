@@ -177,8 +177,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        public void dropBall() {
+            if (hasBall)
+            {
+                //make them drop the ball
+                Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
+                hasBall = false;
+                ballHolder.SetActive(false);
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
         {
+
+            if (other.tag == "killFloor") {
+                if (hasBall || hasWeapon) {
+                    //make them drop the ball
+                    Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
+                    hasBall = false;
+                    ballHolder.SetActive(false);
+                }
+            }
 
             //if the player collides with a weapon tagged object
             if (other.tag == "pickupWeapon")
