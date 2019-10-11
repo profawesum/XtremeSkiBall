@@ -26,6 +26,7 @@ TagManager:
   - bouncyBall
   - slidyBall
   - stickyBall
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

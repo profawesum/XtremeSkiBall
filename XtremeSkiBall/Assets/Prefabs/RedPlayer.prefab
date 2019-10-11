@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBall: 0
+  pauseCanvas: {fileID: 0}
   upThrust: 150000
   cam: {fileID: 5518108518247248046}
   movementSettings:

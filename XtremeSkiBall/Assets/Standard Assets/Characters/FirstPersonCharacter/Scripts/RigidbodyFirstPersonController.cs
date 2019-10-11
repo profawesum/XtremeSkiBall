@@ -81,6 +81,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public bool hasBall;
+        public GameObject pauseCanvas;
+
 
         public float upThrust;
         public Camera cam;
@@ -145,8 +147,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            mouseLook.Init (transform, cam.transform);
+            mouseLook.Init(transform, cam.transform);
+            if (pauseCanvas == null)
+            {
+                pauseCanvas = GameObject.FindWithTag("PauseMenu");
+            }
+            pauseCanvas.SetActive(false);
+
         }
+
 
 
         private void Update()
@@ -159,6 +168,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
                 m_Jump = true;
+            }
+
+            if (Input.GetButtonDown("J1Start")) {
+                Time.timeScale = 0;
+                pauseCanvas.SetActive(true);
             }
         }
 
