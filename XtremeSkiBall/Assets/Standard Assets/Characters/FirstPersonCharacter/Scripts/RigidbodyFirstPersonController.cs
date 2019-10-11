@@ -82,6 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public bool hasBall;
 
+        public float upThrust;
         public Camera cam;
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
@@ -106,8 +107,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource source;
         public AudioClip hitsfx;
+        bool fastDrop = true;
 
-        float timer;
+        public float timer;
 
         public bool IsChargeEnd { get; private set; } = true;
 
@@ -165,6 +167,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             GroundCheck();
             ChargeAttack();
+            QuickDrop();
 
             Vector2 input = GetInput();
 
@@ -187,7 +190,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_IsGrounded)
             {
                 m_RigidBody.drag = 5f;
-
+                fastDrop = true;
                 if (m_Jump)
                 {
                     m_RigidBody.drag = 0f;
@@ -226,6 +229,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
+        public float gravityMultiplier = 10;
+
+        private void QuickDrop()
+        {
+            if (Input.GetButtonDown("J" + PlayerNumber + "RightTrigger") && fastDrop)
+            {
+                fastDrop = false;
+                m_RigidBody.AddForce(Physics.gravity * gravityMultiplier); // Change the 2f to increase and decrease the force
+            }
+        }
+
         private float SlopeMultiplier()
         {
             float angle = Vector3.Angle(m_GroundContactNormal, Vector3.up);
@@ -259,11 +273,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     animator.SetBool("Hit", true);
-                    source.PlayOneShot(hitsfx, 0.7F);
+                    //source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
-                    timer = 0.8f;
+                    timer = 3.5f;
                 }
             }
             if (other.tag == "impactBall")
@@ -293,10 +307,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
                 animator.SetBool("Hit", true);
-                source.PlayOneShot(hitsfx, 0.7F);
+                //source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;
+            }
+            if (other.tag == "JumpPad") {
+                Debug.Log("Added force to jump up");
+                m_RigidBody.AddForce(transform.up * (upThrust * Time.deltaTime));
             }
         }
 

@@ -20,6 +20,14 @@ TagManager:
   - wall
   - impactBall
   - stunBall
+  - JumpPad
+  - hotPotato
+  - fireItUp
+  - slowThrow
+  - heavyBall
+  - bouncyBall
+  - slidyBall
+  - stickyBall
   layers:
   - Default
   - TransparentFX

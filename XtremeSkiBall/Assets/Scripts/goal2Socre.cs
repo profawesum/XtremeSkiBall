@@ -23,7 +23,9 @@ public class goal2Socre : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "ball" && this.tag == "goal2")
+        if (this.tag == "goal2" && other.tag == "ball" || this.tag == "goal2" && other.tag == "hotPotato" || this.tag == "goal2" && other.tag == "slowThrow"
+            || this.tag == "goal2" && other.tag == "fireItUp" || this.tag == "goal2" && other.tag == "heavyBall" || this.tag == "goal2" && other.tag == "bouncyBall"
+            || this.tag == "goal2" && other.tag == "slidyBall" || this.tag == "goal2" && other.tag == "stickyBall")
         {
             p1Source.PlayOneShot(goalSfx, 0.7F);
             goal++;
