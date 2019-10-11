@@ -196,7 +196,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //if the player collides with a ball tagged pickup ball 
             if (other.tag == "pickupBall")
             {
-
                 //give them the ball
                 hasBall = true;
                 Destroy(other.gameObject);
@@ -204,47 +203,54 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             //if the player collides with a goal ball
             if (other.tag == "ball" || other.tag == "hotPotato" || other.tag == "fireItUp" || other.tag == "slowThrow" || other.tag == "heavyBall" || other.tag == "bouncyBall" || other.tag == "slidyBall" || other.tag == "stickyBall")
-        }
-        if (other.tag == "impactBall")
-        {
-            if (hasBall)
             {
-                Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
-                hasBall = false;
-                ballHolder.SetActive(false);
-
+                //give them the ball
+                hasBall = true;
+                Destroy(other.gameObject);
+                ballHolder.SetActive(true);
             }
-        }
-        else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
-        {
-            if (hasBall)
-            {
-                //check to see if the player has not just thrown a ball
-                if (timer <= 0)
-                {
 
-                    //give the player the ball
-                    hasBall = true;
-                    Destroy(other.gameObject);
-                    ballHolder.SetActive(true);
-                    if (randomBallMode)
-                    {
-                        //set the string of the ball once it has been thrown
-                        string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
-                        ball.tag = ballType;
-                    }
-                }
-            }
-            //if a charging player collides with another player
-            else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
+            if (other.tag == "impactBall")
             {
-                //if the player that was hit with the charge has the ball
                 if (hasBall)
                 {
-                    //make them drop the ball
                     Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
                     hasBall = false;
                     ballHolder.SetActive(false);
+
+                }
+            }
+            else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
+            {
+                if (hasBall)
+                {
+                    //check to see if the player has not just thrown a ball
+                    if (timer <= 0)
+                    {
+
+                        //give the player the ball
+                        hasBall = true;
+                        Destroy(other.gameObject);
+                        ballHolder.SetActive(true);
+                        if (randomBallMode)
+                        {
+                            //set the string of the ball once it has been thrown
+                            string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
+                            ball.tag = ballType;
+                        }
+                    }
+                }
+                //if a charging player collides with another player
+                else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
+                {
+                    //if the player that was hit with the charge has the ball
+                    if (hasBall)
+                    {
+                        //make them drop the ball
+                        Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
+                        hasBall = false;
+                        ballHolder.SetActive(false);
+                    }
                 }
             }
         }
