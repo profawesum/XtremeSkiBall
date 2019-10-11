@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class moveGoalCloser : MonoBehaviour
 {
-    public Transform goal;
-    public Transform goal2;
+    public Transform redGoal;
+    public Transform blueGoal;
+
+    public float posToMove;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "ball" && this.tag == "goalPost") {
-            goal.position += new Vector3(0, 0, -5);
+        if (this.tag == "goalPost") {
+            redGoal.position += new Vector3(0, posToMove, 0);
         }
-        if (other.tag == "ball" && this.tag == "goalPost2")
+        if (this.tag == "goalPost2")
         {
-            goal2.position += new Vector3(0, 0, 5);
+            blueGoal.position += new Vector3(0, posToMove, 0);
         }
     }
 }
