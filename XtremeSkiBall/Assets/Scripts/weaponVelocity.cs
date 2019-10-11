@@ -71,7 +71,7 @@ public class weaponVelocity : MonoBehaviour
 
             this.tag = ballTypes[Random.Range(0, ballTypes.Length)];
             //source.PlayOneShot(respawnBall, 0.7F);
-            this.transform.position = ballResetPos.transform.position;
+            this.transform.position = Vector3.zero;
             this.rb.velocity = Vector3.zero;
         }
     }

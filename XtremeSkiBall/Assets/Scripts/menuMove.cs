@@ -41,7 +41,7 @@ public class menuMove : MonoBehaviour
         //load the random level with 2 players
         if (isRandom)
         {
-            Application.LoadLevel(2);
+            Application.LoadLevel(3);
         }
         //load the level that is not random with two players
         else {
@@ -54,7 +54,7 @@ public class menuMove : MonoBehaviour
         //load random level with 4 players
         if (isRandom)
         {
-            Application.LoadLevel(2);
+            Application.LoadLevel(3);
         }
         //load the level that is not random with four players
         else
