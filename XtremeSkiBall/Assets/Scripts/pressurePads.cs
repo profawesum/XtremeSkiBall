@@ -17,7 +17,7 @@ public class pressurePads : MonoBehaviour
     void Start()
     {
         walls = GameObject.FindGameObjectsWithTag("wall");
-        spaceToRise = GameObject.FindGameObjectsWithTag("risePoint");
+        //spaceToRise = GameObject.FindGameObjectsWithTag("risePoint");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class pressurePads : MonoBehaviour
     {
             foreach (GameObject wall in walls)
             {
-                wall.transform.Translate(0, -Time.deltaTime * 0.1f, 0);
+                wall.transform.Translate(0, -Time.deltaTime * 3.0f, 0);
             }
     }
 
