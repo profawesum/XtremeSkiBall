@@ -164,15 +164,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             timer -= Time.deltaTime;
 
             //animator.SetBool("Hit", false);
-            
+            if (Input.GetButtonDown("J" + PlayerNumber + "C")) {
+                animController.SetTrigger("Dash");
+            }
+
             RotateView();
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
                 animController.SetTrigger("Jump");
                 m_Jump = true;
-                //animController.SetBool("Jump", false);
             }
-
+            if (m_RigidBody.velocity.y > 0.1) {
+                animController.SetTrigger("inAir");
+            }
             if (Input.GetButtonDown("J1Start")) {
                 Time.timeScale = 0;
                 pauseCanvas.SetActive(true);
