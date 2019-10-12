@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c15187691425384a8678e33ecf2c794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   hotPotato: 0
   fireItUp: 0
   slowThrow: 0
@@ -118,6 +119,13 @@ MonoBehaviour:
   BouncyBall: 0
   slidyBall: 0
   stickyBall: 0
+  hotPotatoText: {fileID: 0}
+  fireItUpText: {fileID: 0}
+  slowThrowText: {fileID: 0}
+  heavyBallText: {fileID: 0}
+  BouncyBallText: {fileID: 0}
+  slidyBallText: {fileID: 0}
+  stickyBallText: {fileID: 0}
 --- !u!1 &5518108518247314056
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +271,7 @@ MonoBehaviour:
   ChargeCooldownMax: 4
   ChargeTimeMax: 0.5
   ChargeSpeed: 100
-  animator: {fileID: 7450349584492028659}
+  animController: {fileID: 0}
   source: {fileID: 0}
   hitsfx: {fileID: 8300000, guid: 474299943f35fe745be5d79a6ef3e72a, type: 3}
   timer: 0
@@ -1013,12 +1021,6 @@ PrefabInstance:
 --- !u!4 &715780663520055177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5518108518473622675}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7450349584492028659 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: fc91073787b6f444ebce3b8b6dcc4bf9,
     type: 3}
   m_PrefabInstance: {fileID: 5518108518473622675}
   m_PrefabAsset: {fileID: 0}

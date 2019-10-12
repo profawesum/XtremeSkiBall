@@ -177,6 +177,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_RigidBody.velocity.y > 0.1) {
                 animController.SetTrigger("inAir");
             }
+            if (m_RigidBody.velocity.y < 0.1) {
+                animController.SetTrigger("Land");
+            }
             if (Input.GetButtonDown("J1Start")) {
                 Time.timeScale = 0;
                 pauseCanvas.SetActive(true);
@@ -185,6 +188,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 animController.SetTrigger("Shoot");
             }
             if (m_RigidBody.velocity == Vector3.zero) {
+                //animController.SetTrigger("Run");
                 animController.SetTrigger("Idle");
             }
             if (m_RigidBody.velocity.x > 0.1 || m_RigidBody.velocity.z > 0.1 || m_RigidBody.velocity.y > 0.1) {

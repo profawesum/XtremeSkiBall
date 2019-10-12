@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 1ad58a3f7a69f2848a03ed2d7cea8766
+guid: d1c92ad0d1822af45b1421a8f9c19ff0
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: Dash
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 02 - Default
-    second: {fileID: 2100000, guid: bc2bf42f22e780e4bb245e7f5928ac55, type: 2}
+    second: {fileID: 2100000, guid: 335518b5e94a63f4ebe5c40eead28779, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -40,11 +40,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Dash
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 61
-      lastFrame: 82
+      firstFrame: 240
+      lastFrame: 270
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
