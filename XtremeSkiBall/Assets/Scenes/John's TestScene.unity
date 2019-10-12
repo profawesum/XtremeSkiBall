@@ -735,6 +735,18 @@ PrefabInstance:
       propertyPath: spawnPosTeam2.Array.data[1]
       value: 
       objectReference: {fileID: 243782380}
+    - target: {fileID: 6178171808145208406, guid: dfbdb236391956f439338e5d0b51276b,
+        type: 3}
+      propertyPath: RedPrefab
+      value: 
+      objectReference: {fileID: 5518108518247314056, guid: faf2808bde408664c87231214c942c05,
+        type: 3}
+    - target: {fileID: 6178171808145208406, guid: dfbdb236391956f439338e5d0b51276b,
+        type: 3}
+      propertyPath: BluepreFab
+      value: 
+      objectReference: {fileID: 895179770949336834, guid: 66416fc08fe088e4a9ea4179442420cb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfbdb236391956f439338e5d0b51276b, type: 3}
 --- !u!1001 &8203958946662666448

@@ -9,7 +9,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         //get access to the script HotPotato which holds the values for the random ball modifiers
         [SerializeField] HotPotato randomBallModifiers;
-
         [SerializeField] RigidbodyFirstPersonController playerController;
 
 
