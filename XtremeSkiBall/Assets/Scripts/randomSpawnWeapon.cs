@@ -62,7 +62,5 @@ public class randomSpawnWeapon : MonoBehaviour
         {
             restartTimer = false;
         }
-
-
     }
 }
