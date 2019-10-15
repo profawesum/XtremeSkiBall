@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SimulateGravityOnObject : MonoBehaviour
 {
-    const float GravConst = 500000;
+    const float GravConst = 10000;
 
     public static List<SimulateGravityOnObject> ObjectsEffectedByGravity;
-    bool hasGravity = false;
+    [SerializeField] bool hasGravity = false;
 
     public Rigidbody rb;
 
@@ -46,10 +46,10 @@ public class SimulateGravityOnObject : MonoBehaviour
         Vector3 direction = rb.position - rbToAttract.position;
         float distance = direction.magnitude;
 
-        if (distance == 0)
+        if (distance <= 5.0f)
             return; // Distance shouldn't be this
 
-        float forceMagnitude = GravConst * (rb.mass * rbToAttract.mass) * 10000 / Mathf.Pow(distance, 2);
+        float forceMagnitude = GravConst * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
         Vector3 force = direction.normalized * forceMagnitude;
 
         rbToAttract.AddForce(force);
