@@ -16,6 +16,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] Sprite GoalBall;
         [SerializeField] Sprite GravBall;
         [SerializeField] Sprite StunBall;
+        [SerializeField] Sprite ImpactBall;
+        [SerializeField] Sprite ImpactBall;
 
         //physics materials for the random balls
         public PhysicMaterial stickyMaterial;
@@ -96,7 +98,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         timer = 2.0f;
                         //create and throw a ball
                         playerController.timer = 1.5f;
-                        weapon.tag = "stunBall";
+                        weapon.tag = "stunBallThrown";
                         Instantiate(weapon, (transform.position), transform.rotation);
                         hasWeapon = false;
                         weaponHolder.SetActive(false);
@@ -107,7 +109,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         timer = 2.0f;
                         //create and throw a ball
                         playerController.timer = 1.5f;
-                        weapon.tag = "impactBall";
+                        weapon.tag = "impactBallThrown";
                         Instantiate(weapon, (transform.position), transform.rotation);
                         hasWeapon = false;
                         weaponHolder.SetActive(false);
@@ -337,26 +339,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             #endregion
-            //else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
-            //{
-            //    if (hasBall)
-            //    {
-            //        //check to see if the player has not just thrown a ball
-            //        if (timer <= 0)
-            //        {
 
-            //            //give the player the ball
-            //            hasBall = true;
-            //            Destroy(other.gameObject);
-            //            ballHolder.SetActive(true);
-            //            if (randomBallMode)
-            //            {
-            //                //set the string of the ball once it has been thrown
-            //                string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
-            //                ball.tag = ballType;
-            //            }
-            //        }
-            //    }
                 //if a charging player collides with another player
                 else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
                 {

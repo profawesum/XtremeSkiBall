@@ -313,7 +313,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 
             }
             //push the player
-            if (other.tag == "impactBall")
+            if (other.tag == "impactBallThrown")
             {
                 if (timer <= 0)
                 {
@@ -325,13 +325,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
             //stun the player
-            if (other.tag == "stunBall")
+            if (other.tag == "stunBallThrown")
             {
                 if (timer <= 0)
                 {
                     movementSettings.BackwardSpeed = 0;
                     movementSettings.ForwardSpeed = 0;
-                    timer = 1.0f;
+                    timer = 2.0f;
                 }
             }
 
