@@ -17,13 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/newStadium2.unity
     guid: 6c9b751ddbfc39942839b86d7c7c05e8
-  - enabled: 0
-    path: Assets/Scenes/TempLevel/random2Player.unity
-    guid: f05aeaa2d7538fe4da3cf2cf030c3f86
-  - enabled: 0
-    path: Assets/Scenes/TempLevel/random4Player.unity
-    guid: 5e22bd79b5b21034481adc2e036d00ce
-  - enabled: 0
-    path: Assets/Scenes/Menu.unity
-    guid: e34da00453d85e14d8eb349c427a7455
   m_configObjects: {}
