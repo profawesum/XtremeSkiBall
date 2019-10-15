@@ -365,9 +365,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         ballHolder.SetActive(false);
                     }
                 }
-            //if the player collides with a steal ball that is 
+            //if the player collides with an impact ball that is 
             //thrown then drop the goal ball if they have it
-            if (other.tag == "stealBall") {
+            if (other.tag == "impactBallthrown") {
                 if (hasBall) {
                     dropBall();
                 }
