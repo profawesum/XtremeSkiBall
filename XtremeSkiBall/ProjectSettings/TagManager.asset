@@ -28,6 +28,8 @@ TagManager:
   - bouncyBall
   - slidyBall
   - stickyBall
+  - PauseMenu
+  - RandomBallCanvas
   layers:
   - Default
   - TransparentFX
