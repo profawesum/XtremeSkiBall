@@ -16,8 +16,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] Sprite GoalBall;
         [SerializeField] Sprite GravBall;
         [SerializeField] Sprite StunBall;
-        [SerializeField] Sprite ImpactBall;
-        [SerializeField] Sprite ImpactBall;
+        //[SerializeField] Sprite ImpactBall;
+        //[SerializeField] Sprite StealBall;
 
         //physics materials for the random balls
         public PhysicMaterial stickyMaterial;
@@ -65,7 +65,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         void Update()
         {
-
             //timer for the hotPotato Ball
             if (hasBall)
             {
@@ -146,6 +145,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                     ball.GetComponent<BoxCollider>().material = defaultMaterial;
                                     //implemented before this so just skip this then
                                     ball.GetComponent<Rigidbody>().mass = 0.1f;
+                                    //disable the UI Ball
+               
                                 }
                                 break;
                             //fireItUp
@@ -213,6 +214,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     //make it so the player does not have the ball and set the holder to false
                     hasBall = false;
                     ballHolder.SetActive(false);
+                    //disable the UI Ball
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+                    UIText.text = "None";
                 }
             }
         }
@@ -234,16 +238,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (other.tag == "killFloor") {
                 if (hasBall) {
-                    //make them drop the ball
-                    Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
-                    hasBall = false;
-                    ballHolder.SetActive(false);
+                    dropBall();
                 }
                 if (hasWeapon)
                 {
                     //make them drop the ball
                     hasWeapon = false;
                     weaponHolder.SetActive(false);
+                    //disable the UI Ball
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+                    UIText.text = "None";
                 }
             }
 
@@ -335,6 +339,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     UIBallImage.sprite = GoalBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
                     UIText.text = "GoalBall";
+                    if (randomBallMode) {
+                       string temp = ballTypes[Random.Range(0, ballTypes.Length)];
+                        ball.tag = temp;
+                        Debug.Log(ball.tag);
+                    }
+                    if (other.tag == "hotPotato") {
+                        UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+                        UIText.text = "None";
+                    }
                 }
             }
 
