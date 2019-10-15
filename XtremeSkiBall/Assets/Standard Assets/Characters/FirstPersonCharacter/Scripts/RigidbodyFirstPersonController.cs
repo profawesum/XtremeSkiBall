@@ -81,6 +81,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public bool hasBall;
+        public GameObject pauseCanvas;
+
 
         public float upThrust;
         public Camera cam;
@@ -92,6 +94,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float ChargeCooldownMax;
         [SerializeField] private float ChargeTimeMax;
         [SerializeField] private float ChargeSpeed = 100.0f;
+        public Animator animController;
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
@@ -103,7 +106,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_HitTime;
         private BoxCollider m_BoxCollider;
         private float m_HitTimeStart = 4.0f;
-        public Animator animator;
+        //public Animator animator;
 
         public AudioSource source;
         public AudioClip hitsfx;
@@ -145,20 +148,51 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            mouseLook.Init (transform, cam.transform);
+            mouseLook.Init(transform, cam.transform);
+            if (pauseCanvas == null)
+            {
+                pauseCanvas = GameObject.FindWithTag("PauseMenu");
+            }
+            pauseCanvas.SetActive(false);
+
         }
+
 
 
         private void Update()
         {
             timer -= Time.deltaTime;
 
-            animator.SetBool("Hit", false);
+            //animator.SetBool("Hit", false);
+            if (Input.GetButtonDown("J" + PlayerNumber + "C")) {
+                animController.SetTrigger("Dash");
+            }
 
             RotateView();
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
+                animController.SetTrigger("Jump");
                 m_Jump = true;
+            }
+            if (m_RigidBody.velocity.y > 0.1) {
+                animController.SetTrigger("inAir");
+            }
+            if (m_RigidBody.velocity.y < 0.1) {
+                animController.SetTrigger("Land");
+            }
+            if (Input.GetButtonDown("J1Start")) {
+                Time.timeScale = 0;
+                pauseCanvas.SetActive(true);
+            }
+            if (Input.GetButtonDown("J" + PlayerNumber + "B")) {
+                animController.SetTrigger("Shoot");
+            }
+            if (m_RigidBody.velocity == Vector3.zero) {
+                //animController.SetTrigger("Run");
+                animController.SetTrigger("Idle");
+            }
+            if (m_RigidBody.velocity.x > 0.1 || m_RigidBody.velocity.z > 0.1 || m_RigidBody.velocity.y > 0.1) {
+                animController.SetTrigger("Run");
             }
         }
 
@@ -264,15 +298,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "killFloor") {
-                this.transform.position = new Vector3(0, 0, 0);
+                this.transform.position = new Vector3(0, 15.0f, 0);
                 this.m_RigidBody.velocity = new Vector3 (0,0,0);
+                
             }
 
             if (other.tag == "weapon")
             {
                 if (timer <= 0)
                 {
-                    animator.SetBool("Hit", true);
+                   // animator.SetBool("Hit", true);
                     //source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
@@ -284,7 +319,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
-                    animator.SetBool("Hit", true);
+                    //animator.SetBool("Hit", true);
                     source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
@@ -296,7 +331,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
-                    animator.SetBool("Hit", true);
+                    //animator.SetBool("Hit", true);
                     source.PlayOneShot(hitsfx, 0.7F);
                     //m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
@@ -306,7 +341,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
-                animator.SetBool("Hit", true);
+                //animator.SetBool("Hit", true);
                 //source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
@@ -323,7 +358,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             if(Input.GetButtonDown("J" + PlayerNumber + "C") && m_IsCharged == false)
             {
-                animator.SetBool("Charge", true);
+                //animator.SetBool("Charge", true);
                 m_OldVelocity = m_RigidBody.velocity;
                 m_RigidBody.velocity = transform.forward * ChargeSpeed;
                 m_IsCharged = true;
@@ -339,7 +374,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
                 else if(m_ChargeTime <= 0 && !IsChargeEnd)
                 {
-                    animator.SetBool("Charge", false);
+                    //animator.SetBool("Charge", false);
                     m_RigidBody.velocity = m_OldVelocity;
                     IsChargeEnd = true;
                 }
