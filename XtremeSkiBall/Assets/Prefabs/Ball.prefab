@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1606096510318192106}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: slidyBall
+  m_TagString: heavyBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100933115206972417}
-  m_Material: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  m_Material: {fileID: 13400000, guid: b18e7e9fe9d639b40a1f4df37235b656, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -258,7 +258,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100933115206972417}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -286,6 +286,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9100933115206972427}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 597f3c92cbe8c4740b6fa0001d838e76,
+        type: 3}
+      propertyPath: m_Name
+      value: ball
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 597f3c92cbe8c4740b6fa0001d838e76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -340,11 +345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 597f3c92cbe8c4740b6fa0001d838e76,
-        type: 3}
-      propertyPath: m_Name
-      value: ball
       objectReference: {fileID: 0}
     - target: {fileID: 6200443131042155592, guid: 597f3c92cbe8c4740b6fa0001d838e76,
         type: 3}
