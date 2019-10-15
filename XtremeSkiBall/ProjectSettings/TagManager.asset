@@ -32,6 +32,8 @@ TagManager:
   - RandomBallCanvas
   - stunBallThrown
   - impactBallThrown
+  - gravBall
+  - gravBallThrown
   layers:
   - Default
   - TransparentFX
