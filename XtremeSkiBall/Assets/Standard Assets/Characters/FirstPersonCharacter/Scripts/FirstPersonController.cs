@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public int PStun;
         //private Camera cam;
 
         // Use this for initialization
@@ -57,6 +58,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Jumping = false;
                 m_AudioSource = GetComponent<AudioSource>();
                 m_MouseLook.Init(transform, m_Camera.transform);
+
+            PStun = 0;
         }
         // Update is called once per frame
         private void Update()
@@ -196,9 +199,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
-                // Read input
-                float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-                float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            // Read input
+            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
                 bool waswalking = m_IsWalking;
 
@@ -247,6 +250,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     return;
                 }
                 body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
+        }
+
+        public void sPStun(int Stun)
+        {
+            PStun = Stun;
         }
     }
 }

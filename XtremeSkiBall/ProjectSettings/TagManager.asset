@@ -18,6 +18,8 @@ TagManager:
   - pickupBall
   - risePoint
   - wall
+  - impactBall
+  - stunBall
   - JumpPad
   - hotPotato
   - fireItUp
