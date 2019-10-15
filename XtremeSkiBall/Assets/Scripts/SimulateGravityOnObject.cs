@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimulateGravityOnObject : MonoBehaviour
 {
-    const float GravConst = 6.674f;
+    const float GravConst = 6.67f;
 
     public static List<SimulateGravityOnObject> ObjectsEffectedByGravity;
     bool hasGravity = false;
@@ -25,7 +25,7 @@ public class SimulateGravityOnObject : MonoBehaviour
 
     private void OnEnable()
     {
-        if (this.tag == "gravBall")
+        if (this.tag == "gravBallThrown")
             hasGravity = true;
         if(ObjectsEffectedByGravity == null)
         {

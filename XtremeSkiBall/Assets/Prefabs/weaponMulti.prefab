@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6484222741386718685}
   m_Layer: 0
   m_Name: weaponMulti
-  m_TagString: weapon
+  m_TagString: gravBallThrown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7450be9ad6f6d1249b504809dc9c7e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballTypes:
+  - hotPotato
+  - fireItUp
+  - slowThrow
+  - heavyBall
+  - bouncyBall
+  - slidyBall
+  - stickyBall
   rb: {fileID: 3601635111321205815}
+  ballResetPos: {fileID: 0}
   speed: 15000
   timer: 0
   source: {fileID: 0}
