@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4785804907966052356}
   m_Layer: 0
   m_Name: PickupWeaponMulti
+  m_TagString: impactBall
   m_TagString: stealBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
