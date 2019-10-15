@@ -112,6 +112,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_HitTimeStart = 4.0f;
         //public Animator animator;
 
+        public SkinnedMeshRenderer Mesh;
+
         public AudioSource source;
         public AudioClip hitsfx;
         bool fastDrop = true;

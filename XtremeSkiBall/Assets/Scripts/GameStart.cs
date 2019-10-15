@@ -5,7 +5,8 @@ using UnityEngine;
 //Class that spawns players based on the number selected on the last screen
 public class GameStart : MonoBehaviour
 {
-
+    [SerializeField] private Material Blue;
+    [SerializeField] private Material Red;
     //[SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject RedPrefab;
     [SerializeField] private GameObject BluepreFab;
@@ -30,7 +31,7 @@ public class GameStart : MonoBehaviour
         SplitRef.Player1 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
         SplitRef.Player1Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-        //CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().source = audioSource;
+        CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
         CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[0]);
         CurrentObject.transform.position = spawnPosTeam2[0].position;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().HUD.color = new Color(0, 0, 255);
@@ -38,7 +39,7 @@ public class GameStart : MonoBehaviour
         SplitRef.Player2 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
         SplitRef.Player2Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-       // CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().source = audioSource;
+        CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
 
         //Assign the main cameras of the objects to the splitscreen.
         if (PlayerAssign.IsPlayerTwo)
@@ -55,7 +56,7 @@ public class GameStart : MonoBehaviour
             SplitRef.Player3 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
             SplitRef.Player3Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-           // CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().source = audioSource;
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
             CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[1]);
             CurrentObject.transform.position = spawnPosTeam2[1].position;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 4;
@@ -63,7 +64,7 @@ public class GameStart : MonoBehaviour
             SplitRef.Player4 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
             SplitRef.Player4Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-            //CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().source = audioSource;
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
             pauseCanvas.SetActive(false);
         }
        
