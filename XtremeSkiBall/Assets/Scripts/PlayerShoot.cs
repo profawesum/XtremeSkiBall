@@ -54,6 +54,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
+            if (PlayerAssign.isRandomGame)
+            {
+                randomBallMode = true;
+            }
+            else {
+                randomBallMode = false;
+            }
             UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
             UIText.text = "None";
             playerController = GetComponentInParent<RigidbodyFirstPersonController>();

@@ -26,11 +26,13 @@ public class menuMove : MonoBehaviour
     }
 
     public void onRandomClicked() {
+        PlayerAssign.isRandomGame = true;
         isRandom = true;
         twoPlayerText.SetActive(true);
         fourPlayerText.SetActive(true);
     }
     public void onRegularClicked() {
+        PlayerAssign.isRandomGame = false;
         isRandom = false;
         twoPlayerText.SetActive(true);
         fourPlayerText.SetActive(true);
@@ -45,7 +47,7 @@ public class menuMove : MonoBehaviour
         }
         //load the level that is not random with two players
         else {
-            Application.LoadLevel(2);
+            Application.LoadLevel(3);
         }
     }
 
@@ -59,7 +61,7 @@ public class menuMove : MonoBehaviour
         //load the level that is not random with four players
         else
         {
-            Application.LoadLevel(2);
+            Application.LoadLevel(3);
         }
 
     }

@@ -5,4 +5,6 @@ using UnityEngine;
 public static class PlayerAssign
 {
     public static bool IsPlayerTwo { get; set; }
+    public static bool isRandomGame { get; set; }
+
 }
