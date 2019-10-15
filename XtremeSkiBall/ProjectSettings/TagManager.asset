@@ -30,6 +30,8 @@ TagManager:
   - stickyBall
   - PauseMenu
   - RandomBallCanvas
+  - stunBallThrown
+  - impactBallThrown
   layers:
   - Default
   - TransparentFX

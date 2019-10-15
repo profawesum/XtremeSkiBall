@@ -10,6 +10,7 @@ public class CannonFiring : MonoBehaviour
     [SerializeField] private GameObject PreFab;
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
+    public string[] weaponBallTypes = {"impactBall", "StunBall" };
 
     //Update the cannon When adding a new prefab
     enum BallTypes
@@ -39,6 +40,8 @@ public class CannonFiring : MonoBehaviour
             Debug.Log("Don't fire at that spot");
             yield break;
         }
+        string temp = weaponBallTypes[Random.Range(0, weaponBallTypes.Length)];
+        PreFab.tag = temp;
         GameObject currentObject = Instantiate(PreFab, transform);
         currentObject.transform.position = transform.position;
         currentObject.GetComponent<Rigidbody>().isKinematic = true;

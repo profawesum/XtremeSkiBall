@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7302968934211623027}
   m_Layer: 0
   m_Name: PickupWeaponMulti
-  m_TagString: pickupWeapon
+  m_TagString: heavyBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7046121612325107211}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 597f3c92cbe8c4740b6fa0001d838e76,
+        type: 3}
+      propertyPath: m_Name
+      value: ball
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 597f3c92cbe8c4740b6fa0001d838e76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,11 +189,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 597f3c92cbe8c4740b6fa0001d838e76,
-        type: 3}
-      propertyPath: m_Name
-      value: ball
       objectReference: {fileID: 0}
     - target: {fileID: 6200443131042155592, guid: 597f3c92cbe8c4740b6fa0001d838e76,
         type: 3}

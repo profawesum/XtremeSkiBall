@@ -3569,6 +3569,12 @@ PrefabInstance:
       propertyPath: UIText
       value: 
       objectReference: {fileID: 1665553628384889578}
+    - target: {fileID: 3795275272255996358, guid: c93a0d8d5de87bd418881ac19217fcf5,
+        type: 3}
+      propertyPath: ImpactBall
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a64864adf768684a836750c0ce9d0b5,
+        type: 3}
     - target: {fileID: 3795275270436915470, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
       propertyPath: m_Layer

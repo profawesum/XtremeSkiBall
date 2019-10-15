@@ -16,7 +16,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] Sprite GoalBall;
         [SerializeField] Sprite GravBall;
         [SerializeField] Sprite StunBall;
-        //[SerializeField] Sprite ImpactBall;
+        [SerializeField] Sprite ImpactBall;
         //[SerializeField] Sprite StealBall;
 
         //physics materials for the random balls
@@ -290,7 +290,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     hasWeapon = true;
-                    ballHolder.SetActive(true);
+                    weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
                     UIBallImage.sprite = StunBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
@@ -304,9 +304,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     hasWeapon = true;
-                    ballHolder.SetActive(true);
+                    weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
-                    UIBallImage.sprite = StunBall;
+                    UIBallImage.sprite = ImpactBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
                     UIText.text = "Impact Ball";
                     weaponType = "ImpactBall";
@@ -318,7 +318,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (timer <= 0)
                 {
                     hasWeapon = true;
-                    ballHolder.SetActive(true);
+                    weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
                     UIBallImage.sprite = StunBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
