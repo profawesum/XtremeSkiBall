@@ -18,7 +18,11 @@ public class TimerOnePlayer : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
+        string minutes = Mathf.Floor(time / 60).ToString("0");
+        string seconds = (time % 60).ToString("00");
         timeText.text = "Time Remaining: " + time.ToString("F2");
+        //timeText.text = "Time Remaining: " + string.Format("{0}:{1}", minutes, seconds);
+
         if (time <= 0)
         {
             time = 0;
