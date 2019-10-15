@@ -319,7 +319,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
-                    animator.SetBool("Hit", true);
+                    //animator.SetBool("Hit", true);
                     source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
@@ -331,7 +331,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
-                    animator.SetBool("Hit", true);
+                    //animator.SetBool("Hit", true);
                     source.PlayOneShot(hitsfx, 0.7F);
                     //m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
