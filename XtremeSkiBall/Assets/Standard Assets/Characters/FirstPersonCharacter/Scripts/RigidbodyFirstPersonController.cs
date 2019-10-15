@@ -153,12 +153,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init(transform, cam.transform);
-            if (pauseCanvas == null)
-            {
-                pauseCanvas = GameObject.FindWithTag("PauseMenu");
-            }
-            pauseCanvas.SetActive(false);
-
         }
 
 
