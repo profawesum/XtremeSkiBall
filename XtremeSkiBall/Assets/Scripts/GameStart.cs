@@ -5,7 +5,7 @@ using UnityEngine;
 //Class that spawns players based on the number selected on the last screen
 public class GameStart : MonoBehaviour
 {
-
+    
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject RedPrefab;
     [SerializeField] private GameObject BluepreFab;
@@ -13,7 +13,7 @@ public class GameStart : MonoBehaviour
     [SerializeField] private Transform[] spawnPosTeam2;
     private GameObject pauseCanvas;
     private GameObject CurrentObject;
-    private SplitScreen SplitRef;
+    [SerializeField]private SplitScreen SplitRef;
     // Start is called before the first frame update
     void Start()
     {

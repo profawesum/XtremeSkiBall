@@ -17,6 +17,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] Sprite GravBall;
         [SerializeField] Sprite StunBall;
         [SerializeField] Sprite ImpactBall;
+        [SerializeField] Sprite StripBall;
         //[SerializeField] Sprite StealBall;
 
         //physics materials for the random balls
@@ -118,11 +119,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         timer = 2.0f;
                         //create and throw a ball
                         playerController.timer = 1.5f;
-                        weapon.tag = "stealBall";
+                        weapon.tag = "stealBallThrown";
                         Instantiate(weapon, (transform.position), transform.rotation);
                         hasWeapon = false;
                         weaponHolder.SetActive(false);
-
+                    }
+                    if (weaponType == "GravityBall") {
+                        //source.PlayOneShot(respawnBall, 1.5F);
+                        timer = 2.0f;
+                        //create and throw a ball
+                        playerController.timer = 1.5f;
+                        weapon.tag = "gravBallThrown";
+                        Instantiate(weapon, (transform.position), transform.rotation);
+                        hasWeapon = false;
+                        weaponHolder.SetActive(false);
                     }
                     //disable the UI Ball
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
@@ -298,6 +308,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     weaponType = "StunBall";
                 }
             }
+            if (other.tag == "gravBall")
+            {
+                if (timer <= 0)
+                {
+                    hasWeapon = true;
+                    weaponHolder.SetActive(true);
+                    Destroy(other.gameObject);
+                    UIBallImage.sprite = GravBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "Grav Ball";
+                    weaponType = "GravityBall";
+                }
+            }
 
             if (other.tag == "impactBall")
             {
@@ -320,9 +343,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     hasWeapon = true;
                     weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
-                    UIBallImage.sprite = StunBall;
+                    UIBallImage.sprite = StripBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
-                    UIText.text = "Steal Ball";
+                    UIText.text = "Strip Ball";
                     weaponType = "StealBall";
                 }
             }
@@ -367,9 +390,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             //if the player collides with a steal ball that is 
             //thrown then drop the goal ball if they have it
-            if (other.tag == "stealBall") {
+            if (other.tag == "stealBallThrown") {
                 if (hasBall) {
-                    dropBall();
+                    if (timer <= 0)
+                    {
+                        dropBall();
+                    }
                 }
             }
         }
