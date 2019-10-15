@@ -249,13 +249,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //if the player collides with a goal ball
             if (other.tag == "ball" || other.tag == "hotPotato" || other.tag == "fireItUp" || other.tag == "slowThrow" || other.tag == "heavyBall" || other.tag == "bouncyBall" || other.tag == "slidyBall" || other.tag == "stickyBall")
             {
-                //give them the ball
-                hasBall = true;
-                Destroy(other.gameObject);
-                ballHolder.SetActive(true);
-                UIBallImage.sprite = GoalBall;
-                UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
-                UIText.text = "GoalBall";
+                if (timer <= 0)
+                {
+                    //give them the ball
+                    hasBall = true;
+                    Destroy(other.gameObject);
+                    ballHolder.SetActive(true);
+                    UIBallImage.sprite = GoalBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "GoalBall";
+                }
             }
 
             if (other.tag == "impactBall")
