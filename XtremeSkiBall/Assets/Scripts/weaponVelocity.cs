@@ -34,12 +34,6 @@ public class weaponVelocity : MonoBehaviour
             //make it so the ball moves slower
             rb.AddForce(transform.forward * ((2500 * Time.deltaTime)));
         }
-
-        //if (this.tag != "slowBall" || this.tag != "fireItUp")
-        //{
-        //    //add force to the ball
-        //    rb.AddForce(transform.forward * (speed * Time.deltaTime));
-        //}
         if (this.tag == "hotPotato")
         {
             //add force to the ball

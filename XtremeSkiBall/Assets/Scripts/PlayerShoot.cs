@@ -11,18 +11,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
         //get access to the script HotPotato which holds the values for the random ball modifiers
         [SerializeField] HotPotato randomBallModifiers;
         [SerializeField] RigidbodyFirstPersonController playerController;
-
-
         [SerializeField] Image UIBallImage;
         [SerializeField] Text UIText;
         [SerializeField] Sprite GoalBall;
         [SerializeField] Sprite GravBall;
         [SerializeField] Sprite StunBall;
+        [SerializeField] Sprite ImpactBall;
+        [SerializeField] Sprite ImpactBall;
 
+        //physics materials for the random balls
         public PhysicMaterial stickyMaterial;
         public PhysicMaterial defaultMaterial;
         public PhysicMaterial bouncyMaterial;
         public PhysicMaterial iceMaterial;
+
+        public string weaponType;
 
         //bools
         public bool hasWeapon = false;
@@ -89,14 +92,42 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 //if the player has a weapon ball
                 if (hasWeapon)
                 {
-                    //play the audio
-                    //source.PlayOneShot(respawnBall, 1.5F);
-                    timer = 2.0f;
-                    //create and throw a ball
-                    playerController.timer = 1.5f;
-                    Instantiate(weapon, (transform.position), transform.rotation);
-                    hasWeapon = false;
-                    weaponHolder.SetActive(false);
+                    if(weaponType == "StunBall")
+                    {
+                        //source.PlayOneShot(respawnBall, 1.5F);
+                        timer = 2.0f;
+                        //create and throw a ball
+                        playerController.timer = 1.5f;
+                        weapon.tag = "stunBallThrown";
+                        Instantiate(weapon, (transform.position), transform.rotation);
+                        hasWeapon = false;
+                        weaponHolder.SetActive(false);
+                    }
+                    if (weaponType == "ImpactBall") {
+
+                        //source.PlayOneShot(respawnBall, 1.5F);
+                        timer = 2.0f;
+                        //create and throw a ball
+                        playerController.timer = 1.5f;
+                        weapon.tag = "impactBallThrown";
+                        Instantiate(weapon, (transform.position), transform.rotation);
+                        hasWeapon = false;
+                        weaponHolder.SetActive(false);
+                    }
+                    if (weaponType == "StealBall") {
+                        //source.PlayOneShot(respawnBall, 1.5F);
+                        timer = 2.0f;
+                        //create and throw a ball
+                        playerController.timer = 1.5f;
+                        weapon.tag = "stealBall";
+                        Instantiate(weapon, (transform.position), transform.rotation);
+                        hasWeapon = false;
+                        weaponHolder.SetActive(false);
+
+                    }
+                    //disable the UI Ball
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+                    UIText.text = "None";
                 }
 
                 //if the player has the goalable ball
@@ -216,6 +247,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
+
+            #region pickup
+
             //if the player collides with a weapon tagged object
             if (other.tag == "pickupWeapon")
             {
@@ -229,7 +263,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     //Need it to check what ball it is.
                     UIBallImage.sprite = StunBall;
                     UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
-                    UIText.text = "GoalBall";
+                    UIText.text = "Goal Ball";
                 }
             }
             //if the player collides with a ball tagged pickup ball 
@@ -246,47 +280,66 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     UIText.text = "GoalBall";
                 }
             }
-            //if the player collides with a goal ball
-            if (other.tag == "ball" || other.tag == "hotPotato" || other.tag == "fireItUp" || other.tag == "slowThrow" || other.tag == "heavyBall" || other.tag == "bouncyBall" || other.tag == "slidyBall" || other.tag == "stickyBall")
+
+            if (other.tag == "stunBall")
             {
-                //give them the ball
-                hasBall = true;
-                Destroy(other.gameObject);
-                ballHolder.SetActive(true);
-                UIBallImage.sprite = GoalBall;
-                UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
-                UIText.text = "GoalBall";
+                if (timer <= 0)
+                {
+                    hasWeapon = true;
+                    ballHolder.SetActive(true);
+                    Destroy(other.gameObject);
+                    UIBallImage.sprite = StunBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "Stun Ball";
+                    weaponType = "StunBall";
+                }
             }
 
             if (other.tag == "impactBall")
             {
-                if (hasBall)
+                if (timer <= 0)
                 {
-                    Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
-                    hasBall = false;
-                    ballHolder.SetActive(false);
+                    hasWeapon = true;
+                    ballHolder.SetActive(true);
+                    Destroy(other.gameObject);
+                    UIBallImage.sprite = StunBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "Impact Ball";
+                    weaponType = "ImpactBall";
                 }
             }
-            else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
-            {
-                if (hasBall)
-                {
-                    //check to see if the player has not just thrown a ball
-                    if (timer <= 0)
-                    {
 
-                        //give the player the ball
-                        hasBall = true;
-                        Destroy(other.gameObject);
-                        ballHolder.SetActive(true);
-                        if (randomBallMode)
-                        {
-                            //set the string of the ball once it has been thrown
-                            string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
-                            ball.tag = ballType;
-                        }
-                    }
+            if (other.tag == "stealBall")
+            {
+                if (timer <= 0)
+                {
+                    hasWeapon = true;
+                    ballHolder.SetActive(true);
+                    Destroy(other.gameObject);
+                    UIBallImage.sprite = StunBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "Steal Ball";
+                    weaponType = "StealBall";
                 }
+            }
+
+            //if the player collides with a goal ball
+            if (other.tag == "ball" || other.tag == "hotPotato" || other.tag == "fireItUp" || other.tag == "slowThrow" || other.tag == "heavyBall" || other.tag == "bouncyBall" || other.tag == "slidyBall" || other.tag == "stickyBall")
+            {
+                if (timer <= 0)
+                {
+                    //give them the ball
+                    hasBall = true;
+                    Destroy(other.gameObject);
+                    ballHolder.SetActive(true);
+                    UIBallImage.sprite = GoalBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "GoalBall";
+                }
+            }
+
+            #endregion
+
                 //if a charging player collides with another player
                 else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)
                 {
@@ -298,6 +351,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         hasBall = false;
                         ballHolder.SetActive(false);
                     }
+                }
+            //if the player collides with a steal ball that is 
+            //thrown then drop the goal ball if they have it
+            if (other.tag == "stealBall") {
+                if (hasBall) {
+                    dropBall();
                 }
             }
         }

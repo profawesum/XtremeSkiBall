@@ -97,6 +97,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float ChargeCooldownMax;
         [SerializeField] private float ChargeTimeMax;
         [SerializeField] private float ChargeSpeed = 100.0f;
+        
         public Animator animController;
 
         private Rigidbody m_RigidBody;
@@ -165,6 +166,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             timer -= Time.deltaTime;
+
+            //reset the player speed after they get hit with the stun ball
+            if (timer <= 0) {
+                movementSettings.ForwardSpeed = 25;
+                movementSettings.BackwardSpeed = 25;
+            }
 
             //animator.SetBool("Hit", false);
             if (Input.GetButtonDown("J" + PlayerNumber + "C")) {
@@ -305,12 +312,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 this.m_RigidBody.velocity = new Vector3 (0,0,0);
                 
             }
-
-            if (other.tag == "weapon")
+            //push the player
+            if (other.tag == "impactBallThrown")
             {
                 if (timer <= 0)
                 {
-                   // animator.SetBool("Hit", true);
                     //source.PlayOneShot(hitsfx, 0.7F);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
@@ -318,33 +324,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     timer = 3.5f;
                 }
             }
-            if (other.tag == "impactBall")
+            //stun the player
+            if (other.tag == "stunBallThrown")
             {
                 if (timer <= 0)
                 {
-                    //animator.SetBool("Hit", true);
-                    source.PlayOneShot(hitsfx, 0.7F);
-                    m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
-                    m_HitTime = m_HitTimeStart;
-                    m_WasHit = true;
-                    timer = 0.8f;
+                    movementSettings.BackwardSpeed = 0;
+                    movementSettings.ForwardSpeed = 0;
+                    timer = 2.0f;
                 }
             }
-            if (other.tag == "stunBall")
-            {
-                if (timer <= 0)
-                {
-                    //animator.SetBool("Hit", true);
-                    source.PlayOneShot(hitsfx, 0.7F);
-                    //m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
-                    m_HitTime = m_HitTimeStart;
-                    m_WasHit = true;
-                    timer = 0.8f;
-                }
-            }
+
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
-                //animator.SetBool("Hit", true);
                 //source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
@@ -361,7 +353,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             if(Input.GetButtonDown("J" + PlayerNumber + "C") && m_IsCharged == false)
             {
-                //animator.SetBool("Charge", true);
                 m_OldVelocity = m_RigidBody.velocity;
                 m_RigidBody.velocity = transform.forward * ChargeSpeed;
                 m_IsCharged = true;
@@ -377,7 +368,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
                 else if(m_ChargeTime <= 0 && !IsChargeEnd)
                 {
-                    //animator.SetBool("Charge", false);
                     m_RigidBody.velocity = m_OldVelocity;
                     IsChargeEnd = true;
                 }
