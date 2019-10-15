@@ -7,6 +7,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
 
         [SerializeField] RigidbodyFirstPersonController controller;
+        [SerializeField] PlayerShoot shoot;
 
         //bools to check which type the goal ball is
         public bool hotPotato;
@@ -60,124 +61,127 @@ namespace UnityStandardAssets.Characters.FirstPerson
         //checks to see if the player has collided with a ball that has a modifier
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "hotPotato")
+            if (shoot.timer <= 0)
             {
-                hotPotato = true;
-                fireItUp = false;
-                slowThrow = false;
-                heavyBall = false;
-                BouncyBall = false;
-                slidyBall = false;
-                stickyBall = false;
-                hotPotatoText.SetActive(true);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "fireItUp")
-            {
-                hotPotato = false;
-                fireItUp = true;
-                slowThrow = false;
-                heavyBall = false;
-                BouncyBall = false;
-                slidyBall = false;
-                stickyBall = false;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(true);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "slowThrow")
-            {
-                hotPotato = false;
-                fireItUp = false;
-                slowThrow = true;
-                heavyBall = false;
-                BouncyBall = false;
-                slidyBall = false;
-                stickyBall = false;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(true);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "heavyBall")
-            {
-                hotPotato = false;
-                fireItUp = false;
-                slowThrow = false;
-                heavyBall = true;
-                BouncyBall = false;
-                slidyBall = false;
-                stickyBall = false;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(true);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "bouncyBall")
-            {
-                hotPotato = false;
-                fireItUp = false;
-                slowThrow = false;
-                heavyBall = false;
-                BouncyBall = true;
-                slidyBall = false;
-                stickyBall = false;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(true);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "slidyBall")
-            {
-                hotPotato = false;
-                fireItUp = false;
-                slowThrow = false;
-                heavyBall = false;
-                BouncyBall = false;
-                slidyBall = true;
-                stickyBall = false;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(true);
-                stickyBallText.SetActive(false);
-            }
-            if (other.tag == "stickyBall")
-            {
-                hotPotato = false;
-                fireItUp = false;
-                slowThrow = false;
-                heavyBall = false;
-                BouncyBall = false;
-                slidyBall = false;
-                stickyBall = true;
-                hotPotatoText.SetActive(false);
-                fireItUpText.SetActive(false);
-                slowThrowText.SetActive(false);
-                heavyBallText.SetActive(false);
-                BouncyBallText.SetActive(false);
-                slidyBallText.SetActive(false);
-                stickyBallText.SetActive(true);
+                if (other.tag == "hotPotato")
+                {
+                    hotPotato = true;
+                    fireItUp = false;
+                    slowThrow = false;
+                    heavyBall = false;
+                    BouncyBall = false;
+                    slidyBall = false;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(true);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "fireItUp")
+                {
+                    hotPotato = false;
+                    fireItUp = true;
+                    slowThrow = false;
+                    heavyBall = false;
+                    BouncyBall = false;
+                    slidyBall = false;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(true);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "slowThrow")
+                {
+                    hotPotato = false;
+                    fireItUp = false;
+                    slowThrow = true;
+                    heavyBall = false;
+                    BouncyBall = false;
+                    slidyBall = false;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(true);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "heavyBall")
+                {
+                    hotPotato = false;
+                    fireItUp = false;
+                    slowThrow = false;
+                    heavyBall = true;
+                    BouncyBall = false;
+                    slidyBall = false;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(true);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "bouncyBall")
+                {
+                    hotPotato = false;
+                    fireItUp = false;
+                    slowThrow = false;
+                    heavyBall = false;
+                    BouncyBall = true;
+                    slidyBall = false;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(true);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "slidyBall")
+                {
+                    hotPotato = false;
+                    fireItUp = false;
+                    slowThrow = false;
+                    heavyBall = false;
+                    BouncyBall = false;
+                    slidyBall = true;
+                    stickyBall = false;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(true);
+                    stickyBallText.SetActive(false);
+                }
+                if (other.tag == "stickyBall")
+                {
+                    hotPotato = false;
+                    fireItUp = false;
+                    slowThrow = false;
+                    heavyBall = false;
+                    BouncyBall = false;
+                    slidyBall = false;
+                    stickyBall = true;
+                    hotPotatoText.SetActive(false);
+                    fireItUpText.SetActive(false);
+                    slowThrowText.SetActive(false);
+                    heavyBallText.SetActive(false);
+                    BouncyBallText.SetActive(false);
+                    slidyBallText.SetActive(false);
+                    stickyBallText.SetActive(true);
+                }
             }
         }
 

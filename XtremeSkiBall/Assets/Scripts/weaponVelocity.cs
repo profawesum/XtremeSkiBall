@@ -22,28 +22,31 @@ public class weaponVelocity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //if the ball is tagged with fireItUp then launch the ball upwards when fired
-        if (this.tag == "fireItUp") {
-            rb.AddForce(transform.up * (speed * Time.deltaTime) * 3);
+        if (this.tag == "fireItUp")
+        {
+            rb.AddForce(-transform.forward * (25000 * Time.deltaTime));
         }
         //if the ball has the tag slowBall
         if (this.tag == "slowBall")
         {
             //make it so the ball moves slower
-            rb.AddForce(transform.forward * ((speed * Time.deltaTime) / 2));
+            rb.AddForce(transform.forward * ((2500 * Time.deltaTime)));
         }
-        if (this.tag != "slowBall" || this.tag != "fireItUp")
-        {
-            //add force to the ball
-            rb.AddForce(transform.forward * (speed * Time.deltaTime));
-        }
+
+        //if (this.tag != "slowBall" || this.tag != "fireItUp")
+        //{
+        //    //add force to the ball
+        //    rb.AddForce(transform.forward * (speed * Time.deltaTime));
+        //}
         if (this.tag == "hotPotato")
         {
             //add force to the ball
-            rb.AddForce(transform.forward * (50000 * Time.deltaTime));
+            rb.AddForce(transform.forward * (25000 * Time.deltaTime));
         }
         else {
-            rb.AddForce(transform.forward * (50000 * Time.deltaTime));
+            rb.AddForce(transform.forward * (25000 * Time.deltaTime));
         }
  
     }
@@ -71,7 +74,7 @@ public class weaponVelocity : MonoBehaviour
 
             this.tag = ballTypes[Random.Range(0, ballTypes.Length)];
             //source.PlayOneShot(respawnBall, 0.7F);
-            this.transform.position = Vector3.zero;
+            this.transform.position = Vector3.zero + new Vector3(0.0f, 15.0f, 0.0f);
             this.rb.velocity = Vector3.zero;
         }
     }

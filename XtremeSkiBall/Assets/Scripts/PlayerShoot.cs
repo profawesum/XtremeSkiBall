@@ -23,7 +23,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public bool randomBallMode = true;
 
         //floats
-        float timer;
+        public float timer;
         float dropTimer;
         public float ballMass;
 
@@ -54,6 +54,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         void Update()
         {
+
+            //DEBUG REMOVE BEFORE SHIPPING 
+            if (Input.GetKey(KeyCode.A)) {
+                //give the player the ball
+                hasBall = true;
+                ballHolder.SetActive(true);
+                if (randomBallMode)
+                {
+                    //set the string of the ball once it has been thrown
+                    string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
+                    ball.tag = ballType;
+                }
+            }
+
             //timer for the hotPotato Ball
             if (hasBall)
             {
@@ -75,7 +89,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             timer -= Time.deltaTime;
             //if the player wants to throw the ball, they can press 'B'
-            if (Input.GetButtonDown("J" + GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber + "B"))
+            if (Input.GetButtonDown("J" + GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber + "B") || Input.GetKey(KeyCode.C))
             {
                 //if the player has a weapon ball
                 if (hasWeapon)
@@ -121,7 +135,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 {
                                     ball.GetComponent<BoxCollider>().material = defaultMaterial;
                                     //the ball moves slower in the weapon velocity script
-                                    ball.GetComponent<Rigidbody>().mass = 0.1f;
+                                    ball.GetComponent<Rigidbody>().mass = 0.25f;
                                 }
                                 break;
                             //heavy Ball
@@ -191,11 +205,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
 
             if (other.tag == "killFloor") {
-                if (hasBall || hasWeapon) {
+                if (hasBall) {
                     //make them drop the ball
                     Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
                     hasBall = false;
                     ballHolder.SetActive(false);
+                }
+                if (hasWeapon)
+                {
+                    //make them drop the ball
+                    hasWeapon = false;
+                    weaponHolder.SetActive(false);
                 }
             }
 
@@ -214,11 +234,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //if the player collides with a ball tagged pickup ball 
             if (other.tag == "pickupBall")
             {
-
-                //give them the ball
-                hasBall = true;
-                Destroy(other.gameObject);
-                ballHolder.SetActive(true);
+                if (timer <= 0)
+                {
+                    //give them the ball
+                    hasBall = true;
+                    Destroy(other.gameObject);
+                    ballHolder.SetActive(true);
+                }
             }
             //if the player collides with a goal ball
             if (other.tag == "ball" || other.tag == "hotPotato" || other.tag == "fireItUp" || other.tag == "slowThrow" || other.tag == "heavyBall" || other.tag == "bouncyBall" || other.tag == "slidyBall" || other.tag == "stickyBall")

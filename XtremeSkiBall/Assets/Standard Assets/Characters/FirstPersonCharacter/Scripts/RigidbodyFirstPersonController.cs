@@ -298,7 +298,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "killFloor") {
-                this.transform.position = new Vector3(0, 0, 0);
+                this.transform.position = new Vector3(0, 15.0f, 0);
                 this.m_RigidBody.velocity = new Vector3 (0,0,0);
                 
             }
