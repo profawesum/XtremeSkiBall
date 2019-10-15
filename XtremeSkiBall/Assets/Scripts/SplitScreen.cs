@@ -9,6 +9,11 @@ public class SplitScreen : MonoBehaviour
     [SerializeField] public Camera Player3;
     [SerializeField] public Camera Player4;
 
+    [SerializeField] public Camera Player1Animation;
+    [SerializeField] public Camera Player2Animation;
+    [SerializeField] public Camera Player3Animation;
+    [SerializeField] public Camera Player4Animation;
+
     [SerializeField] private bool isTwoPlayer;
 
     private bool isHorizontal;
@@ -19,10 +24,16 @@ public class SplitScreen : MonoBehaviour
         if (isTwoPlayer || Player3 == null || Player4 == null)
         {
             Player1.rect = new Rect(0, 0.0f, 1, 0.5f);
-            Player2.rect = new Rect(0, 0.5f, 1, 0.5f); 
+            Player2.rect = new Rect(0, 0.5f, 1, 0.5f);
+            Player1Animation.rect = new Rect(0, 0.0f, 1, 0.5f);
+            Player2Animation.rect = new Rect(0, 0.5f, 1, 0.5f);
         }
         else
         {
+            Player1Animation.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            Player2Animation.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+            Player3Animation.rect = new Rect(0, 0, 0.5f, 0.5f);
+            Player4Animation.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
             Player1.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
             Player2.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
             Player3.rect = new Rect(0, 0, 0.5f, 0.5f);

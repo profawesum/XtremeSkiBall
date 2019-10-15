@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -83,9 +84,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public bool hasBall;
         public GameObject pauseCanvas;
 
+        public Image HUD;
 
         public float upThrust;
         public Camera cam;
+        public Camera AnimationCam;
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();

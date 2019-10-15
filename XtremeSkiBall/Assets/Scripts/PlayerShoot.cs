@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -11,6 +12,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] HotPotato randomBallModifiers;
         [SerializeField] RigidbodyFirstPersonController playerController;
 
+
+        [SerializeField] Image UIBallImage;
+        [SerializeField] Text UIText;
+        [SerializeField] Sprite GoalBall;
+        [SerializeField] Sprite GravBall;
+        [SerializeField] Sprite StunBall;
 
         public PhysicMaterial stickyMaterial;
         public PhysicMaterial defaultMaterial;
@@ -43,7 +50,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
-
+            UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+            UIText.text = "None";
             playerController = GetComponentInParent<RigidbodyFirstPersonController>();
             randomBallModifiers = GetComponent<HotPotato>();
             //disable the ball holders
@@ -54,19 +62,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         void Update()
         {
-
-            //DEBUG REMOVE BEFORE SHIPPING 
-            if (Input.GetKey(KeyCode.A)) {
-                //give the player the ball
-                hasBall = true;
-                ballHolder.SetActive(true);
-                if (randomBallMode)
-                {
-                    //set the string of the ball once it has been thrown
-                    string ballType = ballTypes[Random.Range(0, ballTypes.Length)];
-                    ball.tag = ballType;
-                }
-            }
 
             //timer for the hotPotato Ball
             if (hasBall)
@@ -198,6 +193,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
                 hasBall = false;
                 ballHolder.SetActive(false);
+                UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 0.0f);
+                UIText.text = "None";
             }
         }
 
@@ -229,6 +226,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     hasWeapon = true;
                     Destroy(other.gameObject);
                     weaponHolder.SetActive(true);
+                    //Need it to check what ball it is.
+                    UIBallImage.sprite = StunBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "GoalBall";
                 }
             }
             //if the player collides with a ball tagged pickup ball 
@@ -240,6 +241,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     hasBall = true;
                     Destroy(other.gameObject);
                     ballHolder.SetActive(true);
+                    UIBallImage.sprite = GoalBall;
+                    UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                    UIText.text = "GoalBall";
                 }
             }
             //if the player collides with a goal ball
@@ -249,6 +253,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 hasBall = true;
                 Destroy(other.gameObject);
                 ballHolder.SetActive(true);
+                UIBallImage.sprite = GoalBall;
+                UIBallImage.color = new Color(UIBallImage.color.r, UIBallImage.color.g, UIBallImage.color.b, 1.0f);
+                UIText.text = "GoalBall";
             }
 
             if (other.tag == "impactBall")
@@ -258,7 +265,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
                     hasBall = false;
                     ballHolder.SetActive(false);
-
                 }
             }
             else if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false)

@@ -41,7 +41,7 @@ TagManager:
   - 
   - PostProcessing
   - Wall
-  - 
+  - Gun
   - 
   - 
   - 
@@ -66,4 +66,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Second
+    uniqueID: 2812011765
+    locked: 0
+  - name: New Layer
+    uniqueID: 3994014991
     locked: 0
