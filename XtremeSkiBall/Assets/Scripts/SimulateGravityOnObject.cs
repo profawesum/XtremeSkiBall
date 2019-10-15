@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimulateGravityOnObject : MonoBehaviour
 {
-    const float GravConst = 6.67f;
+    const float GravConst = 500000;
 
     public static List<SimulateGravityOnObject> ObjectsEffectedByGravity;
     bool hasGravity = false;
@@ -49,7 +49,7 @@ public class SimulateGravityOnObject : MonoBehaviour
         if (distance == 0)
             return; // Distance shouldn't be this
 
-        float forceMagnitude = GravConst * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
+        float forceMagnitude = GravConst * (rb.mass * rbToAttract.mass) * 10000 / Mathf.Pow(distance, 2);
         Vector3 force = direction.normalized * forceMagnitude;
 
         rbToAttract.AddForce(force);
