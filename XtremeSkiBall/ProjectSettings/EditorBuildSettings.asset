@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewStadium.unity
     guid: 3826ce8eb8eb18b4e9202fa61dbc9e80
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/newStadium2.unity
     guid: 6c9b751ddbfc39942839b86d7c7c05e8
   - enabled: 0

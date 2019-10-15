@@ -70,11 +70,16 @@ public class CannonFiring : MonoBehaviour
         }
         if(elapse_time >= flightDuration)
         {
+            currentObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
+        while(elapse_time < flightDuration + 1.0f)
+        {
             if (justFired == true)
             {
                 justFired = false;
+                yield break;
             }
-            currentObject.GetComponent<Rigidbody>().isKinematic = false;
+            elapse_time += Time.deltaTime;
         }
     }
     GameObject RandomBall()
