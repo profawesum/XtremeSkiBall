@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4785804907966052356}
   m_Layer: 0
   m_Name: PickupWeaponMulti
-  m_TagString: stunBall
+  m_TagString: impactBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401e7a0d0d9cb9742ab12b13175afd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasGravity: 0
   rb: {fileID: -8264566361233329007}
 --- !u!1001 &2630171773758921035
 PrefabInstance:
