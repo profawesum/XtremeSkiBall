@@ -31,7 +31,15 @@ public class GameStart : MonoBehaviour
         SplitRef.Player1 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
         SplitRef.Player1Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-        CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
+        if(PlayerAssign.Player1Material == null)
+        {
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
+        }
+        else
+        {
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = PlayerAssign.Player1Material;
+        }
+        
         CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[0]);
         CurrentObject.transform.position = spawnPosTeam2[0].position;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().HUD.color = new Color(0, 0, 255);
@@ -39,7 +47,15 @@ public class GameStart : MonoBehaviour
         SplitRef.Player2 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
         SplitRef.Player2Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
         CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-        CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
+        
+        if (PlayerAssign.Player2Material == null)
+        {
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
+        }
+        else
+        {
+            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = PlayerAssign.Player2Material;
+        }
 
         //Assign the main cameras of the objects to the splitscreen.
         if (PlayerAssign.IsPlayerTwo)
@@ -56,7 +72,14 @@ public class GameStart : MonoBehaviour
             SplitRef.Player3 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
             SplitRef.Player3Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
+            if (PlayerAssign.Player3Material == null)
+            {
+                CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Red;
+            }
+            else
+            {
+                CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = PlayerAssign.Player3Material;
+            }
             CurrentObject = Instantiate<GameObject>(BluepreFab, spawnPosTeam2[1]);
             CurrentObject.transform.position = spawnPosTeam2[1].position;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().PlayerNumber = 4;
@@ -64,7 +87,14 @@ public class GameStart : MonoBehaviour
             SplitRef.Player4 = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().cam;
             SplitRef.Player4Animation = CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().AnimationCam;
             CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().pauseCanvas = pauseCanvas;
-            CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
+            if (PlayerAssign.Player4Material == null)
+            {
+                CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = Blue;
+            }
+            else
+            {
+                CurrentObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().Mesh.material = PlayerAssign.Player4Material;
+            }
             pauseCanvas.SetActive(false);
         }
        
