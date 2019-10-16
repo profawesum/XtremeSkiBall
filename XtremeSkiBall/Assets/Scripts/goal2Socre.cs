@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class goal2Socre : MonoBehaviour
 {
     public AudioSource p1Source;
-    public AudioClip goalSfx;
+
+    public AudioClip[] sounds;
 
     public int goal;
 
@@ -27,7 +28,7 @@ public class goal2Socre : MonoBehaviour
             || this.tag == "goal2" && other.tag == "fireItUp" || this.tag == "goal2" && other.tag == "heavyBall" || this.tag == "goal2" && other.tag == "bouncyBall"
             || this.tag == "goal2" && other.tag == "slidyBall" || this.tag == "goal2" && other.tag == "stickyBall")
         {
-            p1Source.PlayOneShot(goalSfx, 0.7F);
+            p1Source.PlayOneShot(sounds[Random.Range(0, sounds.Length)], 0.7F);
             goal++;
             goalText.text += goal.ToString();
             goalText1.text += goal.ToString();
