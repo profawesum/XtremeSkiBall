@@ -119,6 +119,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip shootSfx;
         public AudioClip jumpSfx;
         public AudioClip dashSfx;
+        public AudioClip dropSfx;
         bool fastDrop = true;
 
         public float timer;
@@ -205,6 +206,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (m_RigidBody.velocity.x > 0.2 || m_RigidBody.velocity.z > 0.2 || m_RigidBody.velocity.y > 0.2) {
                 animController.SetTrigger("Run");
+            }
+            if (Input.GetButtonDown("J" + PlayerNumber + "RightTrigger")) {
+                source.PlayOneShot(dropSfx, 0.5f);
             }
         }
 

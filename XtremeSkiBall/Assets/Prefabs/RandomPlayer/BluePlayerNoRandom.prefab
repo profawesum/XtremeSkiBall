@@ -955,6 +955,7 @@ MonoBehaviour:
   shootSfx: {fileID: 8300000, guid: 1a84b310deef8974eadb441ef3dfe11c, type: 3}
   jumpSfx: {fileID: 8300000, guid: e250fff846959a04a9252ced79d0c14d, type: 3}
   dashSfx: {fileID: 8300000, guid: a58bc837f46cead47a36a6f6d9a8cd57, type: 3}
+  dropSfx: {fileID: 8300000, guid: 5a4d809b20664f84c8e8633a28f0c011, type: 3}
   timer: 0
   gravityMultiplier: 1250
 --- !u!95 &8792687191685699502

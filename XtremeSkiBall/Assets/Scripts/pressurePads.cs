@@ -13,9 +13,13 @@ public class pressurePads : MonoBehaviour
     int index;
     int positionIndex;
 
+    public AudioSource source;
+    public AudioClip pressureSfx;
+
     // Start is called before the first frame update
     void Start()
     {
+        source = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
         walls = GameObject.FindGameObjectsWithTag("wall");
         //spaceToRise = GameObject.FindGameObjectsWithTag("risePoint");
     }
@@ -32,6 +36,7 @@ public class pressurePads : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
+           source.PlayOneShot(pressureSfx, 0.7F);
             index = Random.Range(0, walls.Length);
             positionIndex = Random.Range(0, spaceToRise.Length);
             risePoint = spaceToRise[positionIndex];
