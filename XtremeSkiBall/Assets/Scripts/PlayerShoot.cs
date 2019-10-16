@@ -118,7 +118,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         timer = 2.0f;
                         //create and throw a ball
                         playerController.timer = 1.5f;
-                        weapon.tag = "stealBall";
+                        weapon.tag = "stealBallThrown";
                         Instantiate(weapon, (transform.position), transform.rotation);
                         hasWeapon = false;
                         weaponHolder.SetActive(false);
@@ -365,9 +365,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         ballHolder.SetActive(false);
                     }
                 }
-            //if the player collides with an impact ball that is 
+            //if the player collides with a steal ball that is 
             //thrown then drop the goal ball if they have it
-            if (other.tag == "impactBallthrown") {
+            if (other.tag == "stealBallThrown") {
                 if (hasBall) {
                     dropBall();
                 }
