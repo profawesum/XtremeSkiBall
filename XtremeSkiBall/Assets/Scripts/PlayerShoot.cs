@@ -45,8 +45,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject ballHolder;
 
         //audio sources
-        //public AudioSource source;
+        public AudioSource source;
         public AudioClip respawnBall;
+        public AudioClip pickUpBall;
 
         //used for the random gameMode when the player throws a ball
         public string[] ballTypes = { "hotPotato", "fireItUp", "slowThrow", "heavyBall", "bouncyBall", "slidyBall", "stickyBall" };
@@ -54,6 +55,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
+            source = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
             if (PlayerAssign.isRandomGame)
             {
                 randomBallMode = true;
@@ -101,7 +103,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     if(weaponType == "StunBall")
                     {
-                        //source.PlayOneShot(respawnBall, 1.5F);
+                       // source.PlayOneShot(respawnBall, 1.5F);
                         timer = 2.0f;
                         //create and throw a ball
                         playerController.timer = 1.5f;
@@ -241,6 +243,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void dropBall() {
             if (hasBall)
             {
+
                 //make them drop the ball
                 Instantiate(ball, (transform.position + new Vector3(4, 5, 2)), transform.rotation);
                 hasBall = false;
@@ -277,6 +280,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 //check to make sure they have not just thrown it
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     //pickup the ball and enable the weapon holder
                     hasWeapon = true;
                     Destroy(other.gameObject);
@@ -292,6 +296,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     //give them the ball
                     hasBall = true;
                     Destroy(other.gameObject);
@@ -306,6 +311,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     hasWeapon = true;
                     weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
@@ -319,6 +325,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     hasWeapon = true;
                     weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
@@ -333,6 +340,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     hasWeapon = true;
                     weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
@@ -347,6 +355,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     hasWeapon = true;
                     weaponHolder.SetActive(true);
                     Destroy(other.gameObject);
@@ -362,6 +371,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(pickUpBall, 1.5F);
                     //give them the ball
                     hasBall = true;
                     Destroy(other.gameObject);

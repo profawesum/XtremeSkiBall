@@ -36,6 +36,7 @@ TagManager:
   - gravBallThrown
   - stealBall
   - stealBallThrown
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -116,6 +116,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource source;
         public AudioClip hitsfx;
+        public AudioClip shootSfx;
+        public AudioClip jumpSfx;
+        public AudioClip dashSfx;
+        public AudioClip dropSfx;
         bool fastDrop = true;
 
         public float timer;
@@ -152,6 +156,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
+            source = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init(transform, cam.transform);
@@ -170,13 +175,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             //animator.SetBool("Hit", false);
-            if (Input.GetButtonDown("J" + PlayerNumber + "C")) {
+            if (Input.GetButtonDown("J" + PlayerNumber + "C") && IsChargeEnd == false) {
+                source.PlayOneShot(dashSfx, 1.0f);
                 animController.SetTrigger("Dash");
             }
 
             RotateView();
             if (Input.GetButtonDown("J" + PlayerNumber + "A") && !m_Jump)
             {
+                source.PlayOneShot(jumpSfx, 1.0f);
                 animController.SetTrigger("Jump");
                 m_Jump = true;
             }
@@ -191,14 +198,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 pauseCanvas.SetActive(true);
             }
             if (Input.GetButtonDown("J" + PlayerNumber + "B")) {
+                source.PlayOneShot(shootSfx, 1.0f);
                 animController.SetTrigger("Shoot");
             }
             if (m_RigidBody.velocity == Vector3.zero) {
-                //animController.SetTrigger("Run");
                 animController.SetTrigger("Idle");
             }
-            if (m_RigidBody.velocity.x > 0.1 || m_RigidBody.velocity.z > 0.1 || m_RigidBody.velocity.y > 0.1) {
+            if (m_RigidBody.velocity.x > 0.2 || m_RigidBody.velocity.z > 0.2 || m_RigidBody.velocity.y > 0.2) {
                 animController.SetTrigger("Run");
+            }
+            if (Input.GetButtonDown("J" + PlayerNumber + "RightTrigger")) {
+                source.PlayOneShot(dropSfx, 0.5f);
             }
         }
 
@@ -304,6 +314,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "killFloor") {
+                source.PlayOneShot(hitsfx, 1.0f);
                 this.transform.position = new Vector3(0, 15.0f, 0);
                 this.m_RigidBody.velocity = new Vector3 (0,0,0);
                 
@@ -313,7 +324,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
-                    //source.PlayOneShot(hitsfx, 0.7F);
+                    source.PlayOneShot(hitsfx, 1.0f);
                     m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                     m_HitTime = m_HitTimeStart;
                     m_WasHit = true;
@@ -325,6 +336,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (timer <= 0)
                 {
+                    source.PlayOneShot(hitsfx, 1.0f);
                     movementSettings.BackwardSpeed = 0;
                     movementSettings.ForwardSpeed = 0;
                     timer = 2.0f;
@@ -333,7 +345,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (other.tag == "Player" && other.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().IsChargeEnd == false && IsChargeEnd == true)
             {
-                //source.PlayOneShot(hitsfx, 0.7F);
+                source.PlayOneShot(hitsfx, 0.7F);
                 m_RigidBody.velocity = m_RigidBody.velocity + other.GetComponent<Rigidbody>().velocity;
                 m_HitTime = m_HitTimeStart;
                 m_WasHit = true;

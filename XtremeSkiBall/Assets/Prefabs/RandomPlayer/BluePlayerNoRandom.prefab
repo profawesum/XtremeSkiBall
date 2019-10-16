@@ -952,6 +952,10 @@ MonoBehaviour:
   Mesh: {fileID: 2013133297467345743}
   source: {fileID: 0}
   hitsfx: {fileID: 8300000, guid: 474299943f35fe745be5d79a6ef3e72a, type: 3}
+  shootSfx: {fileID: 8300000, guid: 1a84b310deef8974eadb441ef3dfe11c, type: 3}
+  jumpSfx: {fileID: 8300000, guid: e250fff846959a04a9252ced79d0c14d, type: 3}
+  dashSfx: {fileID: 8300000, guid: a58bc837f46cead47a36a6f6d9a8cd57, type: 3}
+  dropSfx: {fileID: 8300000, guid: 5a4d809b20664f84c8e8633a28f0c011, type: 3}
   timer: 0
   gravityMultiplier: 1250
 --- !u!95 &8792687191685699502
@@ -2812,6 +2816,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3578187f025b0b84d95bdcf2e37b3746,
         type: 3}
+    - target: {fileID: 3795275272255996358, guid: c93a0d8d5de87bd418881ac19217fcf5,
+        type: 3}
+      propertyPath: pickUpBall
+      value: 
+      objectReference: {fileID: 8300000, guid: c804e92eac02dff45a0717d6a8d03a46, type: 3}
     - target: {fileID: 5155051291108956575, guid: c93a0d8d5de87bd418881ac19217fcf5,
         type: 3}
       propertyPath: m_Layer
