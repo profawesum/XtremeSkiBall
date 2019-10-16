@@ -61,7 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         //checks to see if the player has collided with a ball that has a modifier
         private void OnTriggerEnter(Collider other)
         {
-            if (shoot.timer <= 0)
+            if (shoot.timer <= 0 && PlayerAssign.isRandomGame)
             {
                 if (other.tag == "hotPotato")
                 {
